@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About AeroEdge - Fighter-grade aviation tools built by a former F/A-18 and RAF Typhoon pilot. Learn about our mission and philosophy.">
+  <title>About | AeroEdge</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo2.png">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="header-inner">
+      <!-- Centered Logo Banner -->
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="images/logo.png" alt="AeroEdge - Analyze, Fly, Master" class="logo">
+        </a>
+      </div>
+
+      <!-- Navigation Bar -->
+      <div class="nav-bar">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="em-diagram.html" class="nav-link">EM Diagram</a>
+          <a href="maneuver-overlay.html" class="nav-link">Maneuver Overlay</a>
+          <a href="logbook.html" class="nav-link">Logbook</a>
+          <a href="https://app.flyaeroedge.com" target="_blank" class="btn btn-primary btn-sm">Try EM Diagram</a>
+          <a href="https://overlay.flyaeroedge.com" target="_blank" class="btn btn-primary btn-sm">Try Maneuver Overlay</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ PAGE HEADER ============ -->
+  <section class="page-header">
+    <!-- Video Background Container -->
+    <div class="page-header-video-container">
+      <!--
+        TO ADD VIDEO:
+        <video class="page-header-video" autoplay muted loop playsinline>
+          <source src="videos/about-header.mp4" type="video/mp4">
+        </video>
+      -->
+    </div>
+    <div class="page-header-overlay"></div>
+
+    <div class="page-header-content container">
+      <h1>About AeroEdge</h1>
+      <p>
+        Fighter-grade aviation engineering, translated for general aviation.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ THE CREATOR ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center; gap: var(--spacing-2xl);">
+        <div class="tool-video-container">
+          <img src="images/creator.jpg" alt="AeroEdge creator - Fighter pilot and flight instructor">
+        </div>
+
+        <div>
+          <h2>Built by a Pilot</h2>
+          <p>
+            AeroEdge is created by a former F/A-18 and RAF Typhoon fighter pilot and instructor,
+            now flying in the civilian world as a CFI/CFII/MEI with AGI, IGI, and A&P mechanic
+            certifications.
+          </p>
+
+          <div class="credential-badges">
+            <span class="credential-badge">F/A-18 A-F</span>
+            <span class="credential-badge">RAF Typhoon</span>
+            <span class="credential-badge">Gold Seal CFI</span>
+            <span class="credential-badge">CFI/CFII/MEI</span>
+            <span class="credential-badge">AGI/IGI</span>
+            <span class="credential-badge">A&P Mechanic</span>
+          </div>
+
+          <p>
+            This background means something specific: I've seen how fighter pilots understand
+            aircraft performance, and I've seen the gap when transitioning to general aviation.
+            The tools and frameworks that tactical aviation takes for granted simply don't exist
+            in the GA world.
+          </p>
+          <p>
+            AeroEdge exists to close that gap. Not by dumbing down fighter-pilot tools, but by
+            making real aviation engineering accessible to anyone who wants to understand their
+            aircraft at a deeper level.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE MISSION ============ -->
+  <section class="section section-navy">
+    <div class="container">
+      <div class="section-header">
+        <h2>The Mission</h2>
+      </div>
+
+      <div class="grid grid-2" style="gap: var(--spacing-2xl);">
+        <div>
+          <h3 style="color: var(--text-light);">What This Isn't</h3>
+          <p>
+            This isn't a VC-funded startup chasing growth metrics. There's no investor deck
+            with hockey-stick projections. No pivot to whatever's trending. No "move fast
+            and break things" when the thing being broken is aviation safety.
+          </p>
+          <p>
+            It's not an attempt to "disrupt" aviation or pretend that decades of hard-won
+            knowledge can be replaced by an app. The POH still matters. Your instructor
+            still matters. Experience still matters.
+          </p>
+        </div>
+
+        <div>
+          <h3 style="color: var(--text-light);">What This Is</h3>
+          <p>
+            This is a set of tools built to solve real problems that real pilots face.
+            Problems I've experienced personally—transitioning from military to civilian
+            aviation, teaching students who can't visualize maneuvers, wanting to understand
+            aircraft performance beyond "follow the POH."
+          </p>
+          <p>
+            The tools are built on real physics, not approximations. The interfaces respect
+            the user's expertise. The business model doesn't hold your data hostage.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PHILOSOPHY ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Design Philosophy</h2>
+        <p>Principles that guide every decision.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="card-body">
+            <h4>Real Physics</h4>
+            <p class="card-text">
+              No game-engine shortcuts. No "close enough" approximations. The math is the
+              same math used in flight test engineering. If the tool says something, it's
+              because the physics say it.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Respect for Expertise</h4>
+            <p class="card-text">
+              Users are pilots, not consumers. The interface doesn't hide complexity—it makes
+              complexity accessible. Advanced features exist for those who want them.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Data Ownership</h4>
+            <p class="card-text">
+              Your data is yours. Local storage options. Full export. No hostage situations
+              where stopping payment means losing your records.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Honest Communication</h4>
+            <p class="card-text">
+              If a feature isn't built, it says "coming soon." If there's a limitation, it's
+              documented. No marketing promises that exceed engineering reality.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Education, Not Replacement</h4>
+            <p class="card-text">
+              These tools help you understand—they don't replace judgment, training, or the
+              POH. They're supplements to aviation knowledge, not substitutes for it.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Ecosystem Thinking</h4>
+            <p class="card-text">
+              Tools should work together. Log a flight, aircraft times update. Check currency,
+              the math comes from your actual entries. One source of truth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE GREYBEARD PRINCIPLE ============ -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center; gap: var(--spacing-2xl);">
+        <div>
+          <h2>The Greybeard Principle</h2>
+          <p>
+            Every design decision at AeroEdge must pass one test: would the skeptical,
+            experienced pilot who's used paper logbooks for 40 years be willing to use this?
+          </p>
+          <p>
+            Not because they're forced to. Not because "digital is inevitable." But because
+            the tool genuinely respects their needs, improves their workflow, and doesn't
+            treat them like they need to be protected from complexity.
+          </p>
+          <p>
+            This pilot has seen apps come and go. They've watched companies shut down and
+            take user data with them. They value their autonomy and their records. They're
+            not impressed by flashy interfaces or growth hacking.
+          </p>
+          <p>
+            <strong>If AeroEdge can serve that pilot well, it can serve anyone.</strong>
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>What This Means</h4>
+            <ul class="feature-list">
+              <li>No forced account creation to try tools</li>
+              <li>Local-first data storage always available</li>
+              <li>One-time purchase options, not subscription-only</li>
+              <li>Full data export in standard formats</li>
+              <li>Interfaces that mirror familiar layouts</li>
+              <li>Technical depth available for those who want it</li>
+              <li>No dark patterns or engagement tricks</li>
+              <li>Clear documentation of limitations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TECHNICAL APPROACH ============ -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <h2>Technical Approach</h2>
+        <p>How the tools are built.</p>
+      </div>
+
+      <div class="grid grid-2" style="gap: var(--spacing-2xl);">
+        <div>
+          <h4 style="color: var(--text-light);">Shared Physics Core</h4>
+          <p>
+            All AeroEdge tools share a single physics engine. Turn rate, stall speed,
+            atmosphere calculations, energy state—computed once, used everywhere. When you
+            see a maneuver on the Overlay, it uses the same math as the EM Diagram.
+          </p>
+
+          <h4 style="color: var(--text-light); margin-top: var(--spacing-lg);">Aircraft Data Library</h4>
+          <p>
+            100+ aircraft with full aerodynamic parameters—not just POH numbers, but the
+            underlying coefficients that drive performance. Wing area, aspect ratio, drag
+            polar, power curves. The data that lets the physics engine work correctly.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color: var(--text-light);">Open Calculations</h4>
+          <p>
+            The math isn't hidden in a black box. Documentation explains what's being
+            calculated and why. If you want to verify, you can. If you want to understand,
+            the information is available.
+          </p>
+
+          <h4 style="color: var(--text-light); margin-top: var(--spacing-lg);">Progressive Enhancement</h4>
+          <p>
+            Tools work without JavaScript for basic functionality. No required logins for
+            public tools. Mobile-first responsive design. Accessibility considered from
+            the start, not bolted on after.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2>Get in Touch</h2>
+        <p>Questions, feedback, or just want to say hi.</p>
+      </div>
+
+      <div class="grid grid-2" style="gap: var(--spacing-2xl);">
+        <div>
+          <h4>Feedback Welcome</h4>
+          <p>
+            AeroEdge is built by pilots for pilots. If something doesn't work the way you
+            expect, if you have a feature request, or if you just want to share how you're
+            using the tools—I want to hear it.
+          </p>
+          <p>
+            Bug reports are especially valuable. These tools deal with aviation safety
+            concepts, and accuracy matters. If you find an error, please report it.
+          </p>
+
+          <h4 style="margin-top: var(--spacing-lg);">Collaboration</h4>
+          <p>
+            If you're a flight instructor using these tools for training, an A&P who wants
+            input on the aircraft management module, or a developer interested in
+            contributing—reach out.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Contact</h4>
+            <p style="margin-bottom: var(--spacing-md);">
+              Best way to reach me:
+            </p>
+
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:info@flyaeroedge.com">info@flyaeroedge.com</a>
+            </p>
+
+            <p style="margin-top: var(--spacing-md); color: var(--text-muted); font-size: var(--font-size-sm);">
+              I read every email. Response time varies based on flying schedule, but I
+              respond to everything eventually.
+            </p>
+
+            <div style="margin-top: var(--spacing-lg); padding-top: var(--spacing-lg); border-top: 1px solid var(--gray-border);">
+              <h4>Bug Reports</h4>
+              <p style="font-size: var(--font-size-sm);">
+                For bug reports, please include:
+              </p>
+              <ul class="feature-list" style="font-size: var(--font-size-sm);">
+                <li>Which tool and what you were doing</li>
+                <li>What you expected vs what happened</li>
+                <li>Browser and device if relevant</li>
+                <li>Screenshots if possible</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRY THE TOOLS ============ -->
+  <section class="section section-navy">
+    <div class="container text-center">
+      <h2>Ready to Explore?</h2>
+      <p style="max-width: 600px; margin: 0 auto var(--spacing-lg);">
+        The best way to understand AeroEdge is to try the tools.
+        No account required.
+      </p>
+
+      <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+        <a href="https://app.flyaeroedge.com" target="_blank" class="btn btn-primary btn-lg">EM Diagram</a>
+        <a href="https://overlay.flyaeroedge.com" target="_blank" class="btn btn-secondary btn-lg">Maneuver Overlay</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="AeroEdge" class="logo">
+          <p>Fighter-grade performance tools for general aviation pilots.</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="em-diagram.html">EM Diagram</a></li>
+            <li><a href="maneuver-overlay.html">Maneuver Overlay</a></li>
+            <li><a href="logbook.html">Logbook (Coming Soon)</a></li>
+            <li><a href="logbook.html">Aircraft (Coming Soon)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about.html#contact">Contact</a></li>
+            <li><a href="#">Documentation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 AeroEdge. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">
+          <em>Not for flight planning. Always verify with official sources.</em>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

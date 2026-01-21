@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AeroEdge - Fighter-grade performance tools for general aviation. Energy-Maneuverability diagrams, maneuver visualization, and digital logbooks built by a fighter pilot.">
+  <meta name="keywords" content="aviation, flight training, EM diagram, energy maneuverability, flight logbook, CFI tools, pilot tools">
+  <title>AeroEdge | Fighter-Grade Aviation Tools</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo2.png">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="header-inner">
+      <!-- Centered Logo Banner -->
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="images/logo.png" alt="AeroEdge - Analyze, Fly, Master" class="logo">
+        </a>
+      </div>
+
+      <!-- Navigation Bar -->
+      <div class="nav-bar">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="nav">
+          <a href="#tools" class="nav-link">Tools</a>
+          <a href="#ecosystem" class="nav-link">Ecosystem</a>
+          <a href="#coming-soon" class="nav-link">Coming Soon</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="https://app.flyaeroedge.com" target="_blank" class="btn btn-primary btn-sm">Try EM Diagram</a>
+          <a href="https://overlay.flyaeroedge.com" target="_blank" class="btn btn-primary btn-sm">Try Maneuver Overlay</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO SECTION ============ -->
+  <section class="hero" id="hero">
+    <!-- Video Background Container - Replace with your video -->
+    <div class="hero-video-container">
+      <!--
+        TO ADD YOUR VIDEO:
+        1. Place your video file (MP4 recommended) in the /videos folder
+        2. Uncomment the video tag below and update the src path
+        3. Keep the video under 10MB for fast loading
+        4. Recommended: cockpit footage, aerial shots, or EM diagram animation
+      -->
+      <!--
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="videos/hero-background.mp4" type="video/mp4">
+      </video>
+      -->
+    </div>
+
+    <!-- Overlay for text readability -->
+    <div class="hero-overlay"></div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="accent">Fighter-Grade</span> Performance Tools<br>for General Aviation
+      </h1>
+      <p class="hero-subtitle">
+        Energy-Maneuverability theory meets the GA cockpit. Real aerodynamic engineering,
+        not simplified guesswork. Built by a fighter pilot, for pilots who want to understand
+        their aircraft at a deeper level.
+      </p>
+      <div class="hero-cta">
+        <a href="https://app.flyaeroedge.com" target="_blank" class="btn btn-primary btn-lg">Try EM Diagram</a>
+        <a href="https://overlay.flyaeroedge.com" target="_blank" class="btn btn-primary btn-lg">Try Maneuver Overlay</a>
+        <a href="#ecosystem" class="btn btn-secondary btn-lg">See the Ecosystem</a>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEM SECTION ============ -->
+  <section class="section section-light" id="problem">
+    <div class="container">
+      <div class="section-header">
+        <h2>The Problem</h2>
+        <p>GA pilots deserve better tools than what's available today.</p>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-body">
+            <h4>Flying Blind to Performance</h4>
+            <p class="card-text">
+              Most pilots never see their aircraft's true performance envelope. POH charts
+              give you numbers, but not understanding. Where exactly does your aircraft run
+              out of energy in a steep turn? At what altitude does climb performance disappear?
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Training Tools Stuck in the Past</h4>
+            <p class="card-text">
+              Flight instructors explain maneuvers with hand gestures and chalkboards.
+              Students practice without visualizing the energy they're managing. The math
+              exists, but the tools to make it accessible don't.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Digital Logbooks That Miss the Point</h4>
+            <p class="card-text">
+              Current digital logbooks force you to enter flights in order. They don't
+              understand military formats. They can't handle the 40-year pilot finally
+              going digital with thousands of out-of-order entries.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>No Integration, Just Silos</h4>
+            <p class="card-text">
+              Your logbook doesn't talk to your aircraft tracking. Your training tools
+              don't use your actual aircraft data. Everything is disconnected, creating
+              more work instead of less.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ECOSYSTEM OVERVIEW ============ -->
+  <section class="section section-navy" id="ecosystem">
+    <div class="container">
+      <div class="section-header">
+        <h2>The AeroEdge Ecosystem</h2>
+        <p>One integrated platform with specialized interfaces. Not separate apps—one source of truth.</p>
+      </div>
+
+      <div class="ecosystem-diagram">
+        <div class="ecosystem-hub">AeroEdge Core</div>
+        <div class="ecosystem-nodes">
+          <div class="ecosystem-node">
+            <h4>EM Diagram</h4>
+            <span class="status">Live</span>
+          </div>
+          <div class="ecosystem-node">
+            <h4>Maneuver Overlay</h4>
+            <span class="status">Live</span>
+          </div>
+          <div class="ecosystem-node">
+            <h4>Logbook</h4>
+            <span class="status">In Development</span>
+          </div>
+          <div class="ecosystem-node">
+            <h4>Aircraft</h4>
+            <span class="status">In Development</span>
+          </div>
+        </div>
+        <p style="margin-top: 2rem; color: var(--text-muted);">
+          Log a flight → Aircraft times update → Compliance countdowns adjust<br>
+          Plan a maneuver → See it on your aircraft's actual EM diagram
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FLAGSHIP TOOLS ============ -->
+  <section class="section" id="tools">
+    <div class="container">
+      <div class="section-header">
+        <h2>Flagship Tools</h2>
+        <p>Start using fighter-grade analysis today.</p>
+      </div>
+
+      <!-- EM Diagram Tool -->
+      <div class="tool-card" id="em-diagram-tool">
+        <div class="tool-video-container">
+          <!--
+            TO ADD SCREENSHOT OR VIDEO:
+            Option 1: Static screenshot
+            <img src="images/em-diagram-screenshot.png" alt="EM Diagram showing aircraft performance envelope">
+
+            Option 2: Demo video
+            <video autoplay muted loop playsinline>
+              <source src="videos/em-diagram-demo.mp4" type="video/mp4">
+            </video>
+          -->
+          <img src="images/em-diagram-screenshot.png" alt="EM Diagram showing aircraft performance envelope with Dynamic Vmc">
+        </div>
+
+        <div class="tool-card-content">
+          <span class="badge badge-live">Live</span>
+          <h3>EM Diagram Generator</h3>
+          <p>
+            See your aircraft's complete performance envelope. Energy-Maneuverability diagrams
+            show exactly where you can and cannot go—the same framework used to design and fly
+            tactical aircraft, now available for your Cessna, Cirrus, or Bonanza.
+          </p>
+
+          <div style="background: linear-gradient(135deg, rgba(230, 92, 0, 0.15), rgba(41, 128, 185, 0.15)); border-left: 3px solid var(--orange-primary); padding: 1rem; margin: 1rem 0; border-radius: 0 6px 6px 0;">
+            <strong style="color: var(--orange-primary);">AeroEdge Exclusive: Dynamic Vmc & Dynamic Vyse</strong>
+            <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">
+              The FAA's published Vmc is a single number tested under ideal conditions. Reality is different.
+              AeroEdge calculates <strong>Dynamic Vmc</strong> and <strong>Dynamic Vyse</strong>—showing how these
+              critical speeds actually change with weight, density altitude, bank angle, and configuration.
+              See your true multi-engine safety margins, not textbook abstractions.
+            </p>
+          </div>
+
+          <ul class="feature-list">
+            <li>100+ aircraft presets with full aerodynamic parameters</li>
+            <li>Custom aircraft editor for any aircraft</li>
+            <li>Stall boundaries, G-limits, and Specific Excess Power regions</li>
+            <li><strong>Dynamic Vmc/Vyse</strong>—real-time multi-engine critical speeds</li>
+            <li>Export to PNG/PDF for briefings</li>
+            <li>Mobile-responsive—works on any device</li>
+          </ul>
+
+          <a href="https://app.flyaeroedge.com" target="_blank" class="btn btn-primary">Launch EM Diagram</a>
+          <a href="em-diagram.html" class="btn btn-outline">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Maneuver Overlay Tool -->
+      <div class="tool-card reverse" id="maneuver-overlay-tool" style="margin-top: var(--spacing-xl);">
+        <div class="tool-video-container">
+          <!--
+            TO ADD SCREENSHOT OR VIDEO:
+            Option 1: Static screenshot
+            <img src="images/overlay-screenshot.png" alt="Maneuver overlay showing steep turn on map">
+
+            Option 2: Demo video
+            <video autoplay muted loop playsinline>
+              <source src="videos/overlay-demo.mp4" type="video/mp4">
+            </video>
+          -->
+          <img src="images/overlay-screenshot.png" alt="Maneuver Overlay showing flight path on satellite map">
+        </div>
+
+        <div class="tool-card-content">
+          <span class="badge badge-live">Live</span>
+          <h3>Maneuver Overlay Tool</h3>
+          <p>
+            Visualize FAA maneuvers as what they really are: time-integrated energy problems.
+            See exactly how altitude, airspeed, and energy interact throughout each maneuver,
+            overlaid on real terrain.
+          </p>
+
+          <ul class="feature-list">
+            <li>Steep Turns with load factor and altitude loss visualization</li>
+            <li>Power-Off 180 glide management with slip effects</li>
+            <li>Impossible Turn analysis with GO/NO-GO safety margins</li>
+            <li>Chandelles, Lazy Eights, Eights on Pylons</li>
+            <li>Engine-Out glide paths on actual terrain</li>
+            <li>Real physics—same math as the EM Diagram</li>
+          </ul>
+
+          <a href="https://overlay.flyaeroedge.com" target="_blank" class="btn btn-primary">Launch Overlay Tool</a>
+          <a href="maneuver-overlay.html" class="btn btn-outline">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMING SOON ============ -->
+  <section class="section section-dark" id="coming-soon">
+    <div class="container">
+      <div class="section-header">
+        <h2>Coming Soon</h2>
+        <p>The ecosystem is expanding. Here's what's next.</p>
+      </div>
+
+      <div class="coming-soon-grid">
+        <!-- Logbook -->
+        <div class="coming-soon-card">
+          <span class="badge badge-coming-soon">In Development</span>
+          <h3>AeroEdge Logbook</h3>
+          <p>
+            A digital logbook designed by pilots who understand the actual pain points.
+            Not another app that forces you into someone else's workflow.
+          </p>
+
+          <div style="background: linear-gradient(135deg, rgba(230, 92, 0, 0.15), rgba(41, 128, 185, 0.15)); border-left: 3px solid var(--orange-primary); padding: 1rem; margin: 1rem 0; border-radius: 0 6px 6px 0;">
+            <strong style="color: var(--orange-primary);">Smart OCR Digitization</strong>
+            <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">
+              Photograph your paper logbook pages and let OCR do the heavy lifting. Every interpreted
+              entry goes through <strong>your review</strong> before it's final—no blind trust in
+              algorithms. You approve, correct, or reject each entry. Your logbook, your authority.
+            </p>
+          </div>
+
+          <div style="background: linear-gradient(135deg, rgba(41, 128, 185, 0.15), rgba(230, 92, 0, 0.15)); border-left: 3px solid var(--blue-primary); padding: 1rem; margin: 1rem 0; border-radius: 0 6px 6px 0;">
+            <strong style="color: var(--blue-primary);">Fully Configurable</strong>
+            <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">
+              Not just for GA pilots. Configure columns, categories, and fields for <strong>any aircrew
+              role</strong>—helicopter pilots, flight engineers, loadmasters, military crew positions.
+              Your logbook structure, your rules.
+            </p>
+          </div>
+
+          <ul class="feature-list">
+            <li><strong>Out-of-order entry:</strong> Add a flight from 10 years ago, it auto-sorts correctly</li>
+            <li><strong>Paper View mode:</strong> Horizontal layout matching physical logbooks</li>
+            <li><strong>Military conversion:</strong> NATOPS/SHARP format to FAA standard</li>
+            <li><strong>Smart validation:</strong> Catches common logging errors automatically</li>
+            <li><strong>Currency tracking:</strong> 6-hits, BFR, medical with proactive alerts</li>
+            <li><strong>8710 auto-population:</strong> Direct export for checkride applications</li>
+          </ul>
+
+          <p style="margin-top: var(--spacing-md); font-size: var(--font-size-sm); color: var(--text-muted);">
+            Built for military pilots converting thousands of hours, CFIs managing students,
+            and paper logbook users finally going digital.
+          </p>
+
+          <a href="logbook.html" class="btn btn-outline" style="margin-top: var(--spacing-md);">Learn More</a>
+        </div>
+
+        <!-- Aircraft Management -->
+        <div class="coming-soon-card">
+          <span class="badge badge-coming-soon">In Development</span>
+          <h3>AeroEdge Aircraft</h3>
+          <p>
+            Track aircraft maintenance, compliance, and operational data in one place.
+            Integrates with the logbook so your flight time and aircraft time stay in sync.
+          </p>
+
+          <ul class="feature-list">
+            <li><strong>Hobbs/Tach sync:</strong> Times update when you log flights</li>
+            <li><strong>AD compliance:</strong> Track Airworthiness Directives automatically</li>
+            <li><strong>Inspection countdown:</strong> Annual, 100-hour, progressive</li>
+            <li><strong>Squawk management:</strong> Track discrepancies through resolution</li>
+            <li><strong>MEL tracking:</strong> Know what's deferred and when it expires</li>
+            <li><strong>Owner/club/school modes:</strong> Different workflows for different operations</li>
+          </ul>
+
+          <p style="margin-top: var(--spacing-md); font-size: var(--font-size-sm); color: var(--text-muted);">
+            For owner-operators, flying clubs, small flight schools, and A&P mechanics
+            who want visibility without complexity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT / CREDIBILITY ============ -->
+  <section class="section credibility-section" id="about">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center;">
+        <div>
+          <h2>Built by a Pilot, for Pilots</h2>
+          <p>
+            AeroEdge is created by a former F/A-18 and RAF Typhoon fighter pilot and instructor,
+            now a civilian CFI/CFII/MEI with AGI, IGI, and A&P mechanic certifications.
+          </p>
+
+          <div class="credential-badges">
+            <span class="credential-badge">F/A-18 A-F</span>
+            <span class="credential-badge">RAF Typhoon</span>
+            <span class="credential-badge">Gold Seal CFI</span>
+            <span class="credential-badge">CFI/CFII/MEI</span>
+            <span class="credential-badge">AGI/IGI</span>
+            <span class="credential-badge">A&P Mechanic</span>
+          </div>
+
+          <p>
+            This isn't a VC-funded startup chasing metrics. It's a tool built to solve real
+            problems that real pilots face. Fighter-grade aviation engineering, translated
+            for general aviation.
+          </p>
+
+          <h4 style="margin-top: var(--spacing-lg);">The Greybeard Principle</h4>
+          <p>
+            Every design decision must convert the skeptical, experienced pilot who's used
+            paper logbooks for 40 years:
+          </p>
+          <ul class="feature-list">
+            <li>No forced account creation</li>
+            <li>Local-first data storage options</li>
+            <li>One-time purchase options, not subscription-only</li>
+            <li>Interfaces that respect expertise, not dumbed-down</li>
+          </ul>
+
+          <a href="about.html" class="btn btn-primary" style="margin-top: var(--spacing-md);">Learn More About AeroEdge</a>
+        </div>
+
+        <div class="tool-video-container">
+          <!--
+            TO ADD CREATOR PHOTO OR VIDEO:
+            Option 1: Photo
+            <img src="images/creator-photo.jpg" alt="AeroEdge creator">
+
+            Option 2: Video introduction
+            <video controls>
+              <source src="videos/intro-video.mp4" type="video/mp4">
+            </video>
+          -->
+          <img src="images/creator.jpg" alt="AeroEdge creator - Fighter pilot and flight instructor">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="AeroEdge" class="logo">
+          <p>Fighter-grade performance tools for general aviation pilots.</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="em-diagram.html">EM Diagram</a></li>
+            <li><a href="maneuver-overlay.html">Maneuver Overlay</a></li>
+            <li><a href="logbook.html">Logbook (Coming Soon)</a></li>
+            <li><a href="logbook.html">Aircraft (Coming Soon)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about.html#contact">Contact</a></li>
+            <li><a href="#">Documentation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 AeroEdge. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">
+          <em>Not for flight planning. Always verify with official sources.</em>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

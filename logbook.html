@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AeroEdge Logbook - Digital flight logbook with out-of-order entry, military conversion, Paper View mode, and smart validation. Coming soon.">
+  <title>Logbook & Aircraft Management | AeroEdge</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo2.png">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="header-inner">
+      <!-- Centered Logo Banner -->
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="images/logo.png" alt="AeroEdge - Analyze, Fly, Master" class="logo">
+        </a>
+      </div>
+
+      <!-- Navigation Bar -->
+      <div class="nav-bar">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="em-diagram.html" class="nav-link">EM Diagram</a>
+          <a href="maneuver-overlay.html" class="nav-link">Maneuver Overlay</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="https://app.flyaeroedge.com" target="_blank" class="btn btn-primary btn-sm">Try EM Diagram</a>
+          <a href="https://overlay.flyaeroedge.com" target="_blank" class="btn btn-primary btn-sm">Try Maneuver Overlay</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ PAGE HEADER ============ -->
+  <section class="page-header">
+    <!-- Video Background Container -->
+    <div class="page-header-video-container">
+      <!--
+        TO ADD VIDEO:
+        <video class="page-header-video" autoplay muted loop playsinline>
+          <source src="videos/logbook-header.mp4" type="video/mp4">
+        </video>
+      -->
+    </div>
+    <div class="page-header-overlay"></div>
+
+    <div class="page-header-content container">
+      <span class="badge badge-coming-soon" style="margin-bottom: var(--spacing-md);">In Development</span>
+      <h1>Logbook & Aircraft Management</h1>
+      <p>
+        Digital flight logging and aircraft tracking designed by pilots who understand
+        the actual pain points.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ THE PROBLEM ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Current Digital Logbooks Miss the Point</h2>
+        <p>They weren't designed by pilots who've lived through the pain.</p>
+      </div>
+
+      <div class="grid grid-2" style="gap: var(--spacing-xl);">
+        <div class="card">
+          <div class="card-body">
+            <h4>Chronological Prison</h4>
+            <p class="card-text">
+              Try adding a flight from 10 years ago and watch the chaos. Most digital
+              logbooks force entries in order, making catch-up logging a nightmare.
+              Paper logbook converts with thousands of entries? Good luck.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Military Conversion Nightmare</h4>
+            <p class="card-text">
+              Transitioning from military to civilian? Your NATOPS or SHARP format
+              doesn't translate. Hours are categorized differently. Nobody's built
+              the conversion engine you need.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Paper-to-Digital Cliff</h4>
+            <p class="card-text">
+              You've got 40 years of paper entries. Current apps make you choose:
+              transcribe everything or start fresh and lose your history. Neither
+              option respects your time or your records.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Subscription Hostage</h4>
+            <p class="card-text">
+              Your data lives on someone else's server. Stop paying, lose access.
+              No export, no local backup, no control. That's not ownership—that's
+              renting your own flight history.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOGBOOK FEATURES ============ -->
+  <section class="section section-navy">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center; gap: var(--spacing-2xl);">
+        <div>
+          <span class="badge badge-coming-soon">In Development</span>
+          <h2 style="margin-top: var(--spacing-md);">AeroEdge Logbook</h2>
+          <p>
+            A digital logbook that actually solves the problems pilots face, not the
+            problems developers imagine.
+          </p>
+
+          <div style="background: linear-gradient(135deg, rgba(230, 92, 0, 0.2), rgba(41, 128, 185, 0.2)); border-left: 3px solid var(--orange-primary); padding: 1rem; margin: 1rem 0; border-radius: 0 6px 6px 0;">
+            <strong style="color: var(--orange-primary);">Smart OCR Digitization</strong>
+            <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: var(--text-light);">
+              Snap photos of your paper logbook pages. Our OCR reads the entries, but <strong>you're
+              the final authority</strong>. Every interpreted entry queues for your review—approve,
+              correct, or reject. No algorithm overwrites your records without your say-so.
+              40 years of paper? Digitize it in batches, on your schedule, with full control.
+            </p>
+          </div>
+
+          <div style="background: linear-gradient(135deg, rgba(41, 128, 185, 0.2), rgba(230, 92, 0, 0.2)); border-left: 3px solid var(--blue-primary); padding: 1rem; margin: 1rem 0; border-radius: 0 6px 6px 0;">
+            <strong style="color: #5dade2;">Fully Configurable for Any Aircrew</strong>
+            <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: var(--text-light);">
+              Not locked into a fixed-wing GA template. Configure your logbook for <strong>any role</strong>—
+              helicopter pilots, flight engineers, loadmasters, sensor operators, military crew positions.
+              Add custom columns, categories, and time types. Your career, your logbook structure.
+            </p>
+          </div>
+
+          <ul class="feature-list">
+            <li>
+              <strong>Out-of-order entry:</strong> Add a flight from any date. It auto-sorts
+              correctly and updates all totals. Transcribe 40 years of paper entries at
+              whatever pace you want.
+            </li>
+            <li>
+              <strong>Paper View mode:</strong> Horizontal layout that mirrors your physical
+              logbook. See entries the way you're used to seeing them.
+            </li>
+            <li>
+              <strong>Military conversion engine:</strong> NATOPS/SHARP format to FAA standard.
+              The translation that transitioning military pilots actually need.
+            </li>
+            <li>
+              <strong>Smart validation:</strong> Catches common errors—sim time logged as
+              flight time, dual given vs received confusion, impossible combinations.
+            </li>
+            <li>
+              <strong>Currency tracking:</strong> 6-hits, BFR, medical, IPC with proactive
+              alerts. Know when you're about to go non-current.
+            </li>
+            <li>
+              <strong>8710 auto-population:</strong> Direct export for checkride applications.
+              The math is done for you.
+            </li>
+          </ul>
+        </div>
+
+        <div class="tool-video-container">
+          <!--
+            ADD LOGBOOK MOCKUP/SCREENSHOT:
+            <img src="images/logbook-mockup.png" alt="AeroEdge Logbook interface mockup">
+          -->
+          <div class="tool-video-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span>Logbook Preview</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AIRCRAFT MANAGEMENT ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center; gap: var(--spacing-2xl);">
+        <div class="tool-video-container">
+          <!--
+            ADD AIRCRAFT MOCKUP/SCREENSHOT:
+            <img src="images/aircraft-mockup.png" alt="AeroEdge Aircraft management interface mockup">
+          -->
+          <div class="tool-video-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+            </svg>
+            <span>Aircraft Management Preview</span>
+          </div>
+        </div>
+
+        <div>
+          <span class="badge badge-coming-soon">In Development</span>
+          <h2 style="margin-top: var(--spacing-md);">AeroEdge Aircraft</h2>
+          <p>
+            Track aircraft maintenance, compliance, and operational data. Integrates with
+            the logbook so your records stay in sync automatically.
+          </p>
+
+          <ul class="feature-list">
+            <li>
+              <strong>Hobbs/Tach synchronization:</strong> Log a flight in the logbook,
+              aircraft times update automatically. No double entry.
+            </li>
+            <li>
+              <strong>AD compliance tracking:</strong> Know what Airworthiness Directives
+              apply and when they're due. No more spreadsheets.
+            </li>
+            <li>
+              <strong>Inspection countdown:</strong> Annual, 100-hour, progressive—see
+              exactly when inspections are due based on actual usage.
+            </li>
+            <li>
+              <strong>Squawk management:</strong> Track discrepancies from report through
+              resolution. Know what's open on the aircraft.
+            </li>
+            <li>
+              <strong>MEL tracking:</strong> Minimum Equipment List deferrals with
+              expiration dates. Know what's deferred and when it expires.
+            </li>
+            <li>
+              <strong>Multi-mode support:</strong> Owner-operator, flying club, flight
+              school—different workflows for different operations.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE GREYBEARD PRINCIPLE ============ -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>The Greybeard Principle</h2>
+        <p>Every design decision must pass this test.</p>
+      </div>
+
+      <div class="grid grid-2" style="align-items: center; gap: var(--spacing-2xl);">
+        <div>
+          <p style="font-size: var(--font-size-lg);">
+            Imagine a pilot who's used paper logbooks for 40 years. They're skeptical of
+            digital anything. They've seen apps come and go, companies shut down, data
+            disappear. They value their records and their autonomy.
+          </p>
+          <p>
+            <strong>That pilot must be willing to use this tool.</strong>
+          </p>
+          <p>
+            Not because they're forced to. Not because "digital is the future." But because
+            the tool genuinely respects their needs and improves their workflow.
+          </p>
+        </div>
+
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <h4>What This Means in Practice</h4>
+              <ul class="feature-list">
+                <li><strong>No forced account creation</strong> to try the tool</li>
+                <li><strong>Local-first data storage</strong> options—your data on your device</li>
+                <li><strong>One-time purchase available</strong>, not subscription-only</li>
+                <li><strong>Full data export</strong> in standard formats, always</li>
+                <li><strong>Paper View interfaces</strong> that mirror familiar layouts</li>
+                <li><strong>Respect for expertise</strong>—not dumbed-down interfaces</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTEGRATION ============ -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <h2>Ecosystem Integration</h2>
+        <p>The magic is how everything connects.</p>
+      </div>
+
+      <div class="ecosystem-diagram">
+        <p style="font-size: var(--font-size-lg); margin-bottom: var(--spacing-lg);">
+          Log a flight → Aircraft times update → Compliance countdowns adjust<br>
+          Track currency → Logbook validates entries against requirements<br>
+          Plan a maneuver → See it on your aircraft's actual EM diagram
+        </p>
+
+        <div class="grid grid-3" style="margin-top: var(--spacing-xl);">
+          <div class="ecosystem-node">
+            <h4>Logbook Entry</h4>
+            <span class="status">Triggers aircraft update</span>
+          </div>
+          <div class="ecosystem-node">
+            <h4>Aircraft Times</h4>
+            <span class="status">Auto-calculated from flights</span>
+          </div>
+          <div class="ecosystem-node">
+            <h4>Compliance</h4>
+            <span class="status">Countdowns adjust automatically</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TARGET USERS ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Built For</h2>
+      </div>
+
+      <div class="grid grid-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h4>Military Transitioners</h4>
+            <p class="card-text">
+              Converting thousands of tactical hours to FAA format. The translation
+              engine you've been waiting for.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body text-center">
+            <h4>CFIs</h4>
+            <p class="card-text">
+              Managing student records, dual given/received, and instructor currency.
+              See your operation at a glance.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body text-center">
+            <h4>Paper Converts</h4>
+            <p class="card-text">
+              Finally going digital after decades of paper. Enter history at your
+              own pace, in any order.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body text-center">
+            <h4>Owner-Operators</h4>
+            <p class="card-text">
+              Flight logging and aircraft tracking in one place. Log a flight,
+              aircraft times update automatically.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STAY UPDATED ============ -->
+  <section class="section section-navy">
+    <div class="container text-center">
+      <h2>Want to Know When It Launches?</h2>
+      <p style="max-width: 600px; margin: 0 auto var(--spacing-lg);">
+        The logbook is in active development. Drop your email to get notified when
+        it's ready for beta testing.
+      </p>
+
+      <!--
+        Replace with actual form handler (Formspree, Netlify Forms, etc.)
+        Current form is placeholder that shows confirmation via JS
+      -->
+      <form class="waitlist-form">
+        <input type="email" placeholder="your@email.com" required>
+        <button type="submit" class="btn btn-primary">Notify Me</button>
+      </form>
+
+      <p style="margin-top: var(--spacing-md); font-size: var(--font-size-sm); color: var(--text-muted);">
+        No spam. Just a notification when beta opens.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ TRY LIVE TOOLS ============ -->
+  <section class="section section-light">
+    <div class="container text-center">
+      <h2>Try the Live Tools Now</h2>
+      <p style="max-width: 600px; margin: 0 auto var(--spacing-lg);">
+        While you wait for the logbook, explore the EM Diagram and Maneuver Overlay
+        tools. Same engineering philosophy, available today.
+      </p>
+
+      <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+        <a href="https://app.flyaeroedge.com" target="_blank" class="btn btn-primary">EM Diagram</a>
+        <a href="https://overlay.flyaeroedge.com" target="_blank" class="btn btn-outline">Maneuver Overlay</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="AeroEdge" class="logo">
+          <p>Fighter-grade performance tools for general aviation pilots.</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="em-diagram.html">EM Diagram</a></li>
+            <li><a href="maneuver-overlay.html">Maneuver Overlay</a></li>
+            <li><a href="logbook.html">Logbook (Coming Soon)</a></li>
+            <li><a href="logbook.html">Aircraft (Coming Soon)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about.html#contact">Contact</a></li>
+            <li><a href="#">Documentation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 AeroEdge. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">
+          <em>Not for flight planning. Always verify with official sources.</em>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
