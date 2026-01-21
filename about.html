@@ -38,12 +38,27 @@
         </button>
 
         <nav class="nav">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="em-diagram.html" class="nav-link">EM Diagram</a>
-          <a href="maneuver-overlay.html" class="nav-link">Maneuver Overlay</a>
-          <a href="logbook.html" class="nav-link">Logbook</a>
+          <div class="nav-dropdown">
+            <a href="index.html#tools" class="nav-link">Live Tools</a>
+            <div class="nav-dropdown-content">
+              <a href="tools/em-diagram.html">EM Diagram</a>
+              <a href="tools/maneuver-overlay.html">Maneuver Overlay</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="index.html#ecosystem" class="nav-link">Ecosystem</a>
+            <div class="nav-dropdown-content">
+              <a href="products/logbook.html">Logbook</a>
+              <a href="products/aircraft.html">Aircraft</a>
+              <a href="products/scheduler.html">Scheduler</a>
+              <a href="products/syllabus.html">Syllabus</a>
+            </div>
+          </div>
+          <a href="learn/index.html" class="nav-link">Learn</a>
+          <a href="preview/index.html" class="nav-link">Sneak Peek</a>
+          <a href="about.html" class="nav-link active">About</a>
           <a href="https://app.flyaeroedge.com" target="_blank" class="btn btn-primary btn-sm">Try EM Diagram</a>
-          <a href="https://overlay.flyaeroedge.com" target="_blank" class="btn btn-primary btn-sm">Try Maneuver Overlay</a>
+          <a href="https://overlay.flyaeroedge.com" target="_blank" class="btn btn-primary btn-sm">Try Overlay Tool</a>
         </nav>
       </div>
     </div>
@@ -396,36 +411,35 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo.png" alt="AeroEdge" class="logo">
-          <p>Fighter-grade performance tools for general aviation pilots.</p>
+          <img src="images/logo.png" alt="AeroEdge" class="footer-logo">
+          <p>Complete aviation software ecosystem built by a fighter pilot for GA pilots.</p>
         </div>
 
         <div class="footer-links">
-          <h4>Tools</h4>
+          <h4>Live Tools</h4>
           <ul>
-            <li><a href="em-diagram.html">EM Diagram</a></li>
-            <li><a href="maneuver-overlay.html">Maneuver Overlay</a></li>
-            <li><a href="logbook.html">Logbook (Coming Soon)</a></li>
-            <li><a href="logbook.html">Aircraft (Coming Soon)</a></li>
-            <li><a href="logbook.html">Scheduling (Coming Soon)</a></li>
+            <li><a href="tools/em-diagram.html">EM Diagram</a></li>
+            <li><a href="tools/maneuver-overlay.html">Maneuver Overlay</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Coming Soon</h4>
+          <ul>
+            <li><a href="products/logbook.html">Logbook</a></li>
+            <li><a href="products/aircraft.html">Aircraft</a></li>
+            <li><a href="products/scheduler.html">Scheduler</a></li>
+            <li><a href="products/syllabus.html">Syllabus</a></li>
           </ul>
         </div>
 
         <div class="footer-links">
           <h4>Resources</h4>
           <ul>
+            <li><a href="learn/index.html">Learn</a></li>
+            <li><a href="preview/index.html">Sneak Peek</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="about.html#contact">Contact</a></li>
-            <li><a href="#">Documentation</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-links">
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Use</a></li>
-            <li><a href="#">Disclaimer</a></li>
           </ul>
         </div>
 
@@ -440,8 +454,8 @@
 
       <div class="footer-bottom">
         <p>&copy; 2025 AeroEdge. All rights reserved.</p>
-        <p style="margin-top: 0.5rem;">
-          <em>Not for flight planning. Always verify with official sources.</em>
+        <p class="footer-disclaimer">
+          <em>Not for flight planning. Not a substitute for proper training. Always verify with official sources.</em>
         </p>
       </div>
     </div>
