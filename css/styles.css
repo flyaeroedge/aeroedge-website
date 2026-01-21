@@ -168,6 +168,11 @@ a:hover {
 .brand-text .edge {
   color: var(--orange-primary);
 }
+/* Light version for orange backgrounds */
+.brand-text-light .aero,
+.brand-text-light .edge {
+  color: var(--text-light);
+}
 
 /* ---------- Header / Navigation ---------- */
 .header {
