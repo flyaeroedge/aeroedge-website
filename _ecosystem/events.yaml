@@ -1,0 +1,354 @@
+# AeroEdge Event Bus Contract
+# Defines all cross-node events in the ecosystem
+
+version: "1.0.0"
+
+events:
+  # ============================================================
+  # LOGBOOK EVENTS
+  # ============================================================
+
+  flight.created:
+    description: Emitted when a new flight is logged
+    source: logbook
+    subscribers:
+      - aircraft (update hobbs/tach)
+      - syllabus (check lesson completion)
+    payload:
+      flight_id:
+        type: string
+        required: true
+      pilot_id:
+        type: string
+        required: true
+      aircraft_id:
+        type: string
+        required: true
+      date:
+        type: string
+        format: ISO8601
+        required: true
+      total_time:
+        type: number
+        description: Decimal hours
+        required: true
+      landings_day:
+        type: integer
+        default: 0
+      landings_night:
+        type: integer
+        default: 0
+      route:
+        type: string
+      context_ids:
+        type: array
+        items: string
+        required: true
+
+  flight.updated:
+    description: Emitted when a flight record is modified
+    source: logbook
+    subscribers:
+      - aircraft (recalculate if times changed)
+    payload:
+      flight_id:
+        type: string
+        required: true
+      changes:
+        type: object
+        description: Key-value of changed fields
+
+  flight.linked:
+    description: Emitted when two flights are linked (dual, safety pilot)
+    source: logbook
+    subscribers:
+      - syllabus (update dual flight progress)
+    payload:
+      flight_a_id:
+        type: string
+        required: true
+      flight_b_id:
+        type: string
+        required: true
+      link_type:
+        type: string
+        enum: [dual, safety_pilot, examiner, ground]
+        required: true
+
+  # ============================================================
+  # AIRCRAFT EVENTS
+  # ============================================================
+
+  aircraft.times_updated:
+    description: Emitted when aircraft hobbs/tach changes
+    source: aircraft
+    subscribers:
+      - scheduler (update display)
+    payload:
+      aircraft_id:
+        type: string
+        required: true
+      hobbs:
+        type: number
+        required: true
+      tach:
+        type: number
+        required: true
+      total_time:
+        type: number
+        required: true
+
+  aircraft.grounded:
+    description: Emitted when aircraft becomes unavailable
+    source: aircraft
+    subscribers:
+      - scheduler (cancel/reschedule affected bookings)
+    payload:
+      aircraft_id:
+        type: string
+        required: true
+      reason:
+        type: string
+        required: true
+      grounded_at:
+        type: string
+        format: ISO8601
+        required: true
+      estimated_return:
+        type: string
+        format: ISO8601
+
+  aircraft.returned_to_service:
+    description: Emitted when grounded aircraft is released
+    source: aircraft
+    subscribers:
+      - scheduler (update availability)
+    payload:
+      aircraft_id:
+        type: string
+        required: true
+      returned_at:
+        type: string
+        format: ISO8601
+        required: true
+
+  squawk.reported:
+    description: Emitted when a pilot reports an issue
+    source: aircraft
+    subscribers:
+      - scheduler (may need to ground aircraft)
+    payload:
+      aircraft_id:
+        type: string
+        required: true
+      squawk_id:
+        type: string
+        required: true
+      severity:
+        type: string
+        enum: [info, minor, major, grounding]
+        required: true
+      description:
+        type: string
+        required: true
+      reported_by:
+        type: string
+        required: true
+
+  maintenance.due:
+    description: Emitted when maintenance is approaching
+    source: aircraft
+    subscribers:
+      - scheduler (show warnings)
+    payload:
+      aircraft_id:
+        type: string
+        required: true
+      maintenance_type:
+        type: string
+        required: true
+      due_at:
+        type: string
+        description: Date or hobbs time
+        required: true
+      hours_remaining:
+        type: number
+
+  # ============================================================
+  # SCHEDULER EVENTS
+  # ============================================================
+
+  booking.created:
+    description: Emitted when a new booking is made
+    source: scheduler
+    subscribers: []
+    payload:
+      booking_id:
+        type: string
+        required: true
+      context_id:
+        type: string
+        required: true
+      aircraft_id:
+        type: string
+        required: true
+      pilot_id:
+        type: string
+        required: true
+      instructor_id:
+        type: string
+      start_time:
+        type: string
+        format: ISO8601
+        required: true
+      end_time:
+        type: string
+        format: ISO8601
+        required: true
+
+  booking.completed:
+    description: Emitted when a booking is completed
+    source: scheduler
+    subscribers:
+      - logbook (create draft flight entry)
+    payload:
+      booking_id:
+        type: string
+        required: true
+      aircraft_id:
+        type: string
+        required: true
+      pilot_id:
+        type: string
+        required: true
+      instructor_id:
+        type: string
+      actual_start:
+        type: string
+        format: ISO8601
+      actual_end:
+        type: string
+        format: ISO8601
+      hobbs_out:
+        type: number
+      hobbs_in:
+        type: number
+      tach_out:
+        type: number
+      tach_in:
+        type: number
+
+  booking.cancelled:
+    description: Emitted when a booking is cancelled
+    source: scheduler
+    subscribers: []
+    payload:
+      booking_id:
+        type: string
+        required: true
+      reason:
+        type: string
+      cancelled_by:
+        type: string
+        required: true
+
+  lesson.scheduled:
+    description: Emitted when a lesson is scheduled
+    source: scheduler
+    subscribers:
+      - logbook (pre-populate flight with lesson objectives)
+    payload:
+      booking_id:
+        type: string
+        required: true
+      enrollment_id:
+        type: string
+        required: true
+      lesson_id:
+        type: string
+        required: true
+      student_id:
+        type: string
+        required: true
+      instructor_id:
+        type: string
+        required: true
+
+  # ============================================================
+  # SYLLABUS EVENTS
+  # ============================================================
+
+  enrollment.created:
+    description: Emitted when a student is enrolled in a syllabus
+    source: syllabus
+    subscribers:
+      - scheduler (initialize lesson queue)
+    payload:
+      enrollment_id:
+        type: string
+        required: true
+      student_id:
+        type: string
+        required: true
+      syllabus_id:
+        type: string
+        required: true
+      context_id:
+        type: string
+        required: true
+
+  lesson.completed:
+    description: Emitted when a lesson is marked complete
+    source: syllabus
+    subscribers:
+      - scheduler (queue next lesson)
+    payload:
+      enrollment_id:
+        type: string
+        required: true
+      lesson_id:
+        type: string
+        required: true
+      flight_id:
+        type: string
+      grade:
+        type: string
+        enum: [satisfactory, unsatisfactory, incomplete]
+      signed_off_by:
+        type: string
+        required: true
+
+  stage.completed:
+    description: Emitted when a training stage is completed
+    source: syllabus
+    subscribers: []
+    payload:
+      enrollment_id:
+        type: string
+        required: true
+      stage_id:
+        type: string
+        required: true
+      completed_at:
+        type: string
+        format: ISO8601
+        required: true
+
+  enrollment.completed:
+    description: Emitted when full training program is completed
+    source: syllabus
+    subscribers: []
+    payload:
+      enrollment_id:
+        type: string
+        required: true
+      syllabus_id:
+        type: string
+        required: true
+      student_id:
+        type: string
+        required: true
+      completed_at:
+        type: string
+        format: ISO8601
+        required: true

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Maneuver Overlay Tool - Visualize FAA maneuvers as energy problems on real terrain. Steep turns, power-off 180s, impossible turn analysis, and more.">
+  <title>Maneuver Overlay Tool | AeroEdge</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../images/logo2.png">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="header-inner">
+      <!-- Centered Logo Banner -->
+      <div class="logo-container">
+        <a href="../index.html">
+          <img src="../images/logo.png" alt="AeroEdge - Analyze, Fly, Master" class="logo">
+        </a>
+      </div>
+
+      <!-- Navigation Bar -->
+      <div class="nav-bar">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="nav">
+          <a href="../index.html#tools" class="nav-link">Tools</a>
+          <a href="../index.html#ecosystem" class="nav-link">Ecosystem</a>
+          <a href="../learn/index.html" class="nav-link">Learn</a>
+          <a href="../about.html" class="nav-link">About</a>
+          <a href="https://overlay.flyaeroedge.com" target="_blank" class="btn btn-primary btn-sm">Try Maneuver Overlay</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ PAGE HEADER ============ -->
+  <section class="page-header">
+    <!-- Video Background Container -->
+    <div class="page-header-video-container">
+      <!--
+        TO ADD VIDEO:
+        <video class="page-header-video" autoplay muted loop playsinline>
+          <source src="../videos/overlay-header.mp4" type="video/mp4">
+        </video>
+      -->
+    </div>
+    <div class="page-header-overlay"></div>
+
+    <div class="page-header-content container">
+      <span class="badge badge-live" style="margin-bottom: var(--spacing-md);">Live Tool</span>
+      <h1>Maneuver Overlay Tool</h1>
+      <p>
+        Visualize FAA maneuvers as what they really are: time-integrated energy problems
+        overlaid on real terrain.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ THE PROBLEM ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center; gap: var(--spacing-2xl);">
+        <div>
+          <h2>Maneuvers Aren't Geometry Problems</h2>
+          <p>
+            Flight instructors explain steep turns with hand gestures. Students practice
+            chandelles without understanding the energy they're managing. The math exists,
+            but the visualization doesn't.
+          </p>
+          <p>
+            Every FAA maneuver is fundamentally an <strong>energy management exercise</strong>.
+            You're trading altitude for airspeed, managing load factor, accounting for wind.
+            But without seeing it, you're flying by feel alone.
+          </p>
+          <p>
+            The Maneuver Overlay Tool shows exactly how altitude, airspeed, and energy
+            interact throughout each maneuver—plotted on real terrain so you can see
+            where you'll end up relative to the airport, obstacles, and the ground.
+          </p>
+        </div>
+
+        <div class="tool-video-container">
+          <!--
+            ADD MANEUVER OVERLAY SCREENSHOT:
+            <img src="../images/overlay-example.png" alt="Maneuver overlay showing steep turn on satellite map">
+          -->
+          <img src="../images/overlay-screenshot.png" alt="Maneuver Overlay showing flight maneuver path on satellite map">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MANEUVERS SUPPORTED ============ -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Maneuvers Supported</h2>
+        <p>From private pilot to commercial, visualize the maneuvers that matter.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="card-body">
+            <h4>Steep Turns</h4>
+            <p class="card-text">
+              45° and 60° bank angles with full load factor visualization. See altitude loss,
+              turn radius, and exactly where you'll complete the turn.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Power-Off 180</h4>
+            <p class="card-text">
+              Glide management from abeam the numbers to touchdown. See how slip affects
+              your glide path and where you'll land based on technique.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Impossible Turn Analysis</h4>
+            <p class="card-text">
+              The critical GO/NO-GO decision. See exactly what altitude and conditions
+              you need to make it back to the runway—with safety margins.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Engine-Out Glide</h4>
+            <p class="card-text">
+              Where can you reach from any point? Plot glide paths on actual terrain and
+              see your options when the engine quits.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Chandelles</h4>
+            <p class="card-text">
+              The climbing 180° turn with constantly changing bank. See how energy trades
+              between altitude and heading throughout the maneuver.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Lazy Eights</h4>
+            <p class="card-text">
+              Undulating climbs and descents with reversing turns. The rhythm of energy
+              management visualized as a continuous path.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Steep Spirals</h4>
+            <p class="card-text">
+              Continuous descent in a spiral. Emergency descent technique shown with
+              altitude loss rate and ground track.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Eights on Pylons</h4>
+            <p class="card-text">
+              Figure-eight around two ground references at pivotal altitude. See the
+              geometry and energy together.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>S-Turns & Turns Around Point</h4>
+            <p class="card-text">
+              Ground reference maneuvers with wind correction. See how wind affects your
+              ground track and required bank angles.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REAL PHYSICS ============ -->
+  <section class="section section-navy">
+    <div class="container">
+      <div class="section-header">
+        <h2>Real Physics, Not Game-Engine Shortcuts</h2>
+        <p>The same math as the EM Diagram. One source of truth.</p>
+      </div>
+
+      <div class="grid grid-2" style="gap: var(--spacing-2xl);">
+        <div>
+          <h4 style="color: var(--text-light);">Shared Core Engine</h4>
+          <p>
+            The Maneuver Overlay uses the same physics calculations as the EM Diagram.
+            Turn rate, turn radius, stall speed, energy bleed—all computed from first
+            principles, not approximations.
+          </p>
+
+          <h4 style="color: var(--text-light); margin-top: var(--spacing-lg);">True Airspeed from Density Altitude</h4>
+          <p>
+            Maneuvers are computed at the actual TAS for your selected altitude and
+            conditions. The ground track reflects what you'll actually fly, not a
+            simplified IAS assumption.
+          </p>
+
+          <h4 style="color: var(--text-light); margin-top: var(--spacing-lg);">Load Factor Effects</h4>
+          <p>
+            Higher G means higher stall speed and more drag. Energy bleed is modeled
+            accurately throughout turns, not ignored.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color: var(--text-light);">Wind Convention Done Right</h4>
+          <p>
+            Enter wind the aviation way: direction it's blowing FROM. The tool converts
+            to ground track vectors internally. Your input matches what you'd get from
+            ATIS or a weather brief.
+          </p>
+
+          <h4 style="color: var(--text-light); margin-top: var(--spacing-lg);">Terrain Awareness</h4>
+          <p>
+            Click anywhere on the map to get field elevation. Maneuvers terminate when
+            they reach the ground. See exactly how much altitude you need to complete
+            each maneuver.
+          </p>
+
+          <h4 style="color: var(--text-light); margin-top: var(--spacing-lg);">Time Scrubber</h4>
+          <p>
+            Scrub through the maneuver second by second. See heading, bank angle, G-load,
+            airspeed, and altitude at every point in time.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>Three steps to visualize any maneuver.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="card-body text-center">
+            <div style="font-size: 3rem; color: var(--orange-primary); margin-bottom: var(--spacing-sm);">1</div>
+            <h4>Select Your Aircraft</h4>
+            <p class="card-text">
+              Choose from 100+ presets or enter custom data. The tool uses your aircraft's
+              actual performance parameters.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body text-center">
+            <div style="font-size: 3rem; color: var(--orange-primary); margin-bottom: var(--spacing-sm);">2</div>
+            <h4>Set Your Starting Point</h4>
+            <p class="card-text">
+              Click on the map to place your starting position. Search for airports or
+              just click anywhere. Set altitude, heading, and wind.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body text-center">
+            <div style="font-size: 3rem; color: var(--orange-primary); margin-bottom: var(--spacing-sm);">3</div>
+            <h4>Choose Your Maneuver</h4>
+            <p class="card-text">
+              Select the maneuver and parameters. The tool computes the entire flight path
+              and displays it on the map in real time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ USE CASES ============ -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <h2>Who Uses This?</h2>
+      </div>
+
+      <div class="grid grid-2" style="gap: var(--spacing-xl);">
+        <div class="coming-soon-card">
+          <h3>Flight Instructors</h3>
+          <p>
+            Brief maneuvers with actual visualizations instead of hand gestures. Show
+            students exactly what they're about to fly, where they'll end up, and what
+            the energy picture looks like.
+          </p>
+          <ul class="feature-list">
+            <li>Pre-flight briefing tool for commercial maneuvers</li>
+            <li>Impossible turn analysis for your actual airport</li>
+            <li>Wind correction visualization for ground reference</li>
+          </ul>
+        </div>
+
+        <div class="coming-soon-card">
+          <h3>Serious Students</h3>
+          <p>
+            Understand maneuvers before you fly them. See the geometry, the energy
+            management, and the decision points. Don't just practice—understand.
+          </p>
+          <ul class="feature-list">
+            <li>Chair fly with actual physics</li>
+            <li>Understand why maneuvers are designed the way they are</li>
+            <li>See your personal minimums on the map</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LAUNCH CTA ============ -->
+  <section class="section section-light" id="launch-tool">
+    <div class="container text-center">
+      <h2>Ready to See Maneuvers Differently?</h2>
+      <p style="max-width: 600px; margin: 0 auto var(--spacing-lg);">
+        No account required. Pick an airport, select a maneuver, and see the physics
+        in action. Free to use.
+      </p>
+
+      <a href="https://overlay.flyaeroedge.com" target="_blank" class="btn btn-primary btn-lg">Launch Maneuver Overlay</a>
+
+      <div class="disclaimer" style="max-width: 600px; margin: var(--spacing-lg) auto 0;">
+        <strong>Note:</strong> This tool is for educational and training purposes.
+        Always verify maneuver parameters with your instructor and follow FAA guidance
+        for actual flight training.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../images/logo.png" alt="AeroEdge" class="footer-logo">
+          <p>Complete aviation software ecosystem built by a fighter pilot for GA pilots.</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Live Tools</h4>
+          <ul>
+            <li><a href="em-diagram.html">EM Diagram</a></li>
+            <li><a href="maneuver-overlay.html">Maneuver Overlay</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Coming Soon</h4>
+          <ul>
+            <li><a href="../products/logbook.html">Logbook</a></li>
+            <li><a href="../products/aircraft.html">Aircraft</a></li>
+            <li><a href="../products/scheduler.html">Scheduler</a></li>
+            <li><a href="../products/syllabus.html">Syllabus</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../about.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 AeroEdge. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

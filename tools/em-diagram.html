@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EM Diagram Generator - Visualize your aircraft's complete performance envelope using Energy-Maneuverability theory. 100+ aircraft presets, custom editor, export to PNG/PDF.">
+  <title>EM Diagram Generator | AeroEdge</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../images/logo2.png">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="header-inner">
+      <!-- Centered Logo Banner -->
+      <div class="logo-container">
+        <a href="../index.html">
+          <img src="../images/logo.png" alt="AeroEdge - Analyze, Fly, Master" class="logo">
+        </a>
+      </div>
+
+      <!-- Navigation Bar -->
+      <div class="nav-bar">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="nav">
+          <a href="../index.html#tools" class="nav-link">Tools</a>
+          <a href="../index.html#ecosystem" class="nav-link">Ecosystem</a>
+          <a href="../learn/index.html" class="nav-link">Learn</a>
+          <a href="../about.html" class="nav-link">About</a>
+          <a href="https://app.flyaeroedge.com" target="_blank" class="btn btn-primary btn-sm">Try EM Diagram</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ PAGE HEADER ============ -->
+  <section class="page-header">
+    <!-- Video Background Container -->
+    <div class="page-header-video-container">
+      <!--
+        TO ADD VIDEO:
+        <video class="page-header-video" autoplay muted loop playsinline>
+          <source src="../videos/em-diagram-header.mp4" type="video/mp4">
+        </video>
+      -->
+    </div>
+    <div class="page-header-overlay"></div>
+
+    <div class="page-header-content container">
+      <span class="badge badge-live" style="margin-bottom: var(--spacing-md);">Live Tool</span>
+      <h1>EM Diagram Generator</h1>
+      <p>
+        Visualize your aircraft's complete performance envelope using Energy-Maneuverability theory—the
+        same framework used to design and fly tactical aircraft.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ WHAT IS EM ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center; gap: var(--spacing-2xl);">
+        <div>
+          <h2>What is an EM Diagram?</h2>
+          <p>
+            Energy-Maneuverability (EM) theory was developed by fighter pilot and engineer
+            John Boyd in the 1960s. It revolutionized how aircraft performance is understood
+            and compared.
+          </p>
+          <p>
+            An EM diagram plots <strong>airspeed vs. load factor (G)</strong>, showing every
+            possible state your aircraft can achieve. The boundaries tell you exactly where
+            performance limits exist:
+          </p>
+
+          <ul class="feature-list">
+            <li><strong>Stall boundary:</strong> Where the wing runs out of lift</li>
+            <li><strong>Structural limit:</strong> Where the airframe runs out of strength</li>
+            <li><strong>Ps contours:</strong> Where you're gaining or losing energy</li>
+            <li><strong>Corner velocity:</strong> Where maximum performance lives</li>
+          </ul>
+
+          <p>
+            Fighter pilots use EM diagrams to understand tactical performance. Now you can
+            see the same information for your Cessna, Cirrus, or Bonanza.
+          </p>
+        </div>
+
+        <div class="tool-video-container">
+          <!--
+            ADD EM DIAGRAM EXAMPLE IMAGE:
+            <img src="../images/em-diagram-example.png" alt="Example EM diagram showing performance envelope">
+          -->
+          <img src="../images/em-diagram-screenshot.png" alt="EM Diagram showing aircraft performance envelope with Dynamic Vmc">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KEY FEATURES ============ -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Key Features</h2>
+        <p>Everything you need to understand aircraft performance.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="card-body">
+            <h4>100+ Aircraft Presets</h4>
+            <p class="card-text">
+              Cessna 172, Piper Cherokee, Cirrus SR22, Beechcraft Bonanza, and dozens more.
+              Full aerodynamic parameters for each, not just POH approximations.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Custom Aircraft Editor</h4>
+            <p class="card-text">
+              Enter your own aircraft data: wing area, weight, power, drag coefficients.
+              See exactly how your specific aircraft performs.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Ps Contours</h4>
+            <p class="card-text">
+              Specific Excess Power shows where you're gaining or losing energy. See exactly
+              where your aircraft can climb, accelerate, or is bleeding speed.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>V-Speed Markers</h4>
+            <p class="card-text">
+              Vs, Va, Vne, Vno, Vy, Vx—all plotted on the diagram. See how they relate to the
+              performance envelope, not just as isolated numbers.
+            </p>
+          </div>
+        </div>
+
+        <div class="card" style="border: 2px solid var(--orange-primary);">
+          <div class="card-body">
+            <h4 style="color: var(--orange-primary);">Dynamic Vmc & Vyse</h4>
+            <p class="card-text">
+              <strong>AeroEdge Exclusive.</strong> See how Vmc and Vyse actually change with
+              weight, density altitude, bank angle, and configuration—not just the static
+              POH number.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Export to PNG/PDF</h4>
+            <p class="card-text">
+              Generate publication-quality diagrams for briefings, training materials, or
+              your own reference. Print them, share them, study them.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DYNAMIC VMC - AEROEDGE EXCLUSIVE ============ -->
+  <section class="section section-navy">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center; gap: var(--spacing-2xl);">
+        <div>
+          <span class="badge badge-live" style="background-color: var(--orange-primary);">AeroEdge Exclusive</span>
+          <h2 style="margin-top: var(--spacing-md);">Dynamic Vmc & Dynamic Vyse</h2>
+          <p>
+            The red line in your POH is a lie—or at best, a half-truth. That published Vmc was tested
+            under specific conditions: max gross weight, aft CG, sea level, feathered prop, 5° bank
+            into the good engine. Change any variable, and your actual Vmc changes too.
+          </p>
+          <p>
+            <strong>AeroEdge calculates Dynamic Vmc in real-time.</strong> See how your minimum control
+            speed shifts as you reduce weight, climb to altitude, or adjust configuration. This isn't
+            a list of "factors that affect Vmc"—it's the actual calculated speed for your conditions.
+          </p>
+          <p>
+            The same applies to Vyse. Your best single-engine climb speed isn't fixed. Dynamic Vyse
+            shows you the optimal speed for your actual weight and density altitude, not the
+            sea-level-max-gross number in the book.
+          </p>
+        </div>
+
+        <div>
+          <div class="card card-dark" style="border: 2px solid var(--orange-primary);">
+            <div class="card-body">
+              <h4 style="color: var(--orange-primary);">Why This Matters</h4>
+              <p>Multi-engine training teaches "factors that affect Vmc" as a memorization exercise:</p>
+              <ul class="feature-list" style="margin: 1rem 0;">
+                <li>Weight decreases → Vmc increases</li>
+                <li>Density altitude increases → Vmc decreases</li>
+                <li>CG moves forward → Vmc decreases</li>
+              </ul>
+              <p style="margin-top: 1rem;">
+                But <em>how much</em>? Nobody tells you. AeroEdge does. See the actual numbers,
+                plotted on the EM diagram, so you understand your real safety margins—not
+                abstract relationships.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AIRCRAFT LIBRARY ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Aircraft Library</h2>
+        <p>Comprehensive aerodynamic data for the most popular GA aircraft.</p>
+      </div>
+
+      <div class="grid grid-4">
+        <div class="card card-dark">
+          <div class="card-body text-center">
+            <h4 style="color: var(--text-light);">Single-Engine Piston</h4>
+            <p class="card-text">Cessna 152, 172, 182 • Piper Cherokee, Warrior, Archer • Cirrus SR20, SR22 • Mooney M20 series</p>
+          </div>
+        </div>
+
+        <div class="card card-dark">
+          <div class="card-body text-center">
+            <h4 style="color: var(--text-light);">Multi-Engine Piston</h4>
+            <p class="card-text">Piper Seminole, Seneca • Beechcraft Baron, Duchess • Cessna 310, 402 • Diamond DA42</p>
+          </div>
+        </div>
+
+        <div class="card card-dark">
+          <div class="card-body text-center">
+            <h4 style="color: var(--text-light);">High Performance</h4>
+            <p class="card-text">Beechcraft Bonanza • Cirrus SR22T • Piper Malibu • Mooney Acclaim</p>
+          </div>
+        </div>
+
+        <div class="card card-dark">
+          <div class="card-body text-center">
+            <h4 style="color: var(--text-light);">Training Aircraft</h4>
+            <p class="card-text">Cessna 150, 152 • Piper Tomahawk • Diamond DA20, DA40 • Tecnam P2002</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-center text-muted" style="margin-top: var(--spacing-lg);">
+        Don't see your aircraft? Use the custom editor to enter your own data.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ TECHNICAL DETAILS ============ -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <h2>Under the Hood</h2>
+        <p>Real physics, not approximations.</p>
+      </div>
+
+      <div class="grid grid-2" style="gap: var(--spacing-2xl);">
+        <div>
+          <h4 style="color: var(--text-light);">Atmosphere Model</h4>
+          <p>
+            Standard atmosphere calculations for density altitude, pressure altitude, and
+            true airspeed. See how performance changes with altitude and temperature.
+          </p>
+
+          <h4 style="color: var(--text-light); margin-top: var(--spacing-lg);">Drag Polar</h4>
+          <p>
+            Accurate CD0 and induced drag modeling. Not simplified "parasite + induced"
+            approximations, but the actual aerodynamic relationship between lift and drag.
+          </p>
+
+          <h4 style="color: var(--text-light); margin-top: var(--spacing-lg);">Thrust Modeling</h4>
+          <p>
+            Power available accounts for altitude and airspeed effects. Propeller efficiency
+            included for accurate thrust calculations across the flight envelope.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color: var(--text-light);">Load Factor Physics</h4>
+          <p>
+            Turn rate, turn radius, and stall speed all vary with G-loading. The math is
+            exact—the same equations used in flight test engineering.
+          </p>
+
+          <h4 style="color: var(--text-light); margin-top: var(--spacing-lg);">Energy State</h4>
+          <p>
+            Specific Excess Power (Ps) computed at every point in the envelope. Positive Ps
+            means you can climb or accelerate. Negative means you're losing energy.
+          </p>
+
+          <h4 style="color: var(--text-light); margin-top: var(--spacing-lg);">Unit Awareness</h4>
+          <p>
+            Switch between KIAS/KTAS, feet/meters, pounds/kilograms. The tool handles
+            conversions correctly—you work in whatever units you prefer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LAUNCH CTA ============ -->
+  <section class="section section-navy" id="launch-tool">
+    <div class="container text-center">
+      <h2>Ready to See Your Aircraft's Performance?</h2>
+      <p style="max-width: 600px; margin: 0 auto var(--spacing-lg);">
+        No account required. Select your aircraft and generate a diagram in seconds.
+        Free to use, no strings attached.
+      </p>
+
+      <a href="https://app.flyaeroedge.com" target="_blank" class="btn btn-primary btn-lg">Launch EM Diagram Tool</a>
+
+      <div class="disclaimer" style="max-width: 600px; margin: var(--spacing-lg) auto 0;">
+        <strong>Note:</strong> This tool is for educational and training purposes.
+        Always verify performance data with your aircraft's POH and official sources
+        before flight.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../images/logo.png" alt="AeroEdge" class="footer-logo">
+          <p>Complete aviation software ecosystem built by a fighter pilot for GA pilots.</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Live Tools</h4>
+          <ul>
+            <li><a href="em-diagram.html">EM Diagram</a></li>
+            <li><a href="maneuver-overlay.html">Maneuver Overlay</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Coming Soon</h4>
+          <ul>
+            <li><a href="../products/logbook.html">Logbook</a></li>
+            <li><a href="../products/aircraft.html">Aircraft</a></li>
+            <li><a href="../products/scheduler.html">Scheduler</a></li>
+            <li><a href="../products/syllabus.html">Syllabus</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../about.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 AeroEdge. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>
