@@ -6,7 +6,7 @@
 
   <!-- Primary SEO -->
   <title>Digital Aircrew Logbook | Military Conversion, OCR Import, Context Logbooks | AeroEdge</title>
-  <meta name="description" content="Digital logbook for pilots and all aircrew—fully configurable for any crew position. Military conversion, multiple import options (manual, CSV, OCR), context logbooks, training integration, and full customization. Built for pilots, flight engineers, loadmasters, navigators, and anyone who logs flight time.">
+  <meta name="description" content="Join the AeroEdge Logbook limited beta. Digital logbook for pilots and all aircrew—fully configurable for any crew position. Military conversion, multiple import options (manual, CSV, OCR), context logbooks, training integration, and full customization. Sign up for early access.">
 
   <!-- Extended Keywords -->
   <meta name="keywords" content="digital pilot logbook, aircrew logbook, flight engineer logbook, loadmaster logbook, navigator logbook, electronic flight log, pilot logbook app, flight time tracking, pilot currency tracker, military flight time conversion, NATOPS to FAA conversion, paper logbook digitization, logbook OCR, 8710 form generator, flight review tracker, instrument currency, night currency, ForeFlight logbook alternative, pilot logbook software, CFI logbook, flight hours tracker, medical currency, BFR tracker, cross country time, PIC time, dual time, instrument approaches, airline logbook format, part 61 tracking, part 141 tracking, custom logbook fields, configurable logbook">
@@ -45,7 +45,7 @@
   }
   </script>
 </head>
-<body>
+<body class="has-beta-banner">
 
   <!-- Header -->
   <header class="header">
@@ -87,11 +87,25 @@
     </div>
   </header>
 
+  <!-- Beta Announcement Banner -->
+  <div class="beta-banner" id="beta-banner">
+    <div class="beta-banner-content">
+      <span class="beta-banner-text">
+        <span class="icon">🚀</span>
+        Limited Beta Coming Soon — Be First In Line
+      </span>
+      <a href="#beta-signup" class="beta-banner-cta">
+        Sign Up for Early Access →
+      </a>
+    </div>
+    <button class="beta-banner-dismiss" id="beta-banner-dismiss" aria-label="Dismiss banner">×</button>
+  </div>
+
   <!-- Page Header -->
   <section class="page-header">
     <div class="page-header-overlay"></div>
     <div class="page-header-content container">
-      <span class="badge badge-dev">In Development</span>
+      <span class="badge badge-beta">BETA SOON</span>
       <h1><span class="brand-text"><span class="aero">AERO</span><span class="edge">EDGE</span></span> Logbook</h1>
       <p>The logbook built by aircrew who were frustrated with every other logbook. Fully configurable for pilots, flight engineers, loadmasters, navigators—anyone who logs flight time.</p>
     </div>
@@ -436,19 +450,135 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section section-navy">
-    <div class="container text-center">
-      <h2>Ready for a Logbook That Actually Works?</h2>
-      <p style="color: var(--text-muted); max-width: 600px; margin: var(--spacing-md) auto;">
-        <span class="brand-text"><span class="aero">AERO</span><span class="edge">EDGE</span></span> Logbook is currently in development. Join the waitlist to get early access and help shape the final product.
-      </p>
+  <!-- Beta Sign-Up Section -->
+  <section class="beta-signup-section" id="beta-signup">
+    <div class="container">
+      <div class="beta-signup-header">
+        <h2>Join the Limited Beta</h2>
+        <p>Be among the first to use <span class="brand-text"><span class="aero">AERO</span><span class="edge">EDGE</span></span> Logbook and help shape the final product.</p>
+      </div>
 
-      <div style="margin-top: var(--spacing-lg);">
-        <a href="../about.html#contact" class="btn btn-primary btn-lg">Get Notified When Available</a>
-        <a href="../index.html#ecosystem" class="btn btn-secondary btn-lg">Explore Full Ecosystem</a>
+      <div class="beta-signup-container">
+        <!-- Info Panel -->
+        <div class="beta-info-panel">
+          <h3><span class="icon">🚀</span> LIMITED BETA COMING SOON</h3>
+
+          <div class="beta-info-item">
+            <h4><span class="icon">✓</span> 30-Day Beta Period</h4>
+            <p>Full access to test, break, and provide feedback</p>
+          </div>
+
+          <div class="beta-info-item">
+            <h4><span class="icon">✓</span> PWA App (Mobile + Desktop)</h4>
+            <p>Works on any device — install it like a native app</p>
+          </div>
+
+          <div class="beta-info-item">
+            <h4><span class="icon">✓</span> Your Progress Saves</h4>
+            <p>Build your logbook, set preferences, customize themes — it all carries over</p>
+          </div>
+
+          <div class="beta-info-item">
+            <h4><span class="icon">✓</span> Beta Tester Benefits</h4>
+            <p>Discounted pricing + immediate data migration when we launch</p>
+          </div>
+
+          <div class="beta-info-item">
+            <h4><span class="icon">✓</span> Direct Line to Development</h4>
+            <p>Built-in feedback system — your input shapes the final product</p>
+          </div>
+
+          <div class="beta-info-warning">
+            <h4><span class="icon">⚠️</span> Beta means beta</h4>
+            <p>Some features may be incomplete. Updates push regularly. We want your bugs, gripes, and suggestions — that's the point.</p>
+          </div>
+        </div>
+
+        <!-- Sign-Up Form -->
+        <div class="beta-form-container">
+          <h3>Request Beta Access</h3>
+
+          <form class="beta-form" id="beta-form" action="https://docs.google.com/forms/d/e/1FAIpQLSd0D1RQT6MTthBp-0D5IFTfAb5tpfQHkejRWY-ub0ogCTbpkg/formResponse" method="POST" target="hidden_iframe">
+
+            <div class="beta-form-row">
+              <div class="beta-form-group">
+                <label for="beta-firstname">First Name <span class="required">*</span></label>
+                <input type="text" id="beta-firstname" name="entry.2005620554" required placeholder="First name">
+              </div>
+              <div class="beta-form-group">
+                <label for="beta-lastname">Last Name <span class="required">*</span></label>
+                <input type="text" id="beta-lastname" name="entry.547853813" required placeholder="Last name">
+              </div>
+            </div>
+
+            <div class="beta-form-group">
+              <label for="beta-email">Email <span class="required">*</span></label>
+              <input type="email" id="beta-email" name="entry.1684897073" required placeholder="your@email.com">
+            </div>
+
+            <div class="checkbox-group">
+              <span class="checkbox-group-label">What best describes you? (Select all that apply)</span>
+              <div class="checkbox-grid">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="entry.1581795619" value="Military (Active Duty)">
+                  <span>Military (Active Duty)</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="entry.1581795619" value="Military (Transitioning/Veteran)">
+                  <span>Military (Transitioning/Veteran)</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="entry.1581795619" value="Airlines (Current)">
+                  <span>Airlines (Current)</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="entry.1581795619" value="Airlines (Aspiring)">
+                  <span>Airlines (Aspiring)</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="entry.1581795619" value="Part 61 Student">
+                  <span>Part 61 Student</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="entry.1581795619" value="Part 141 Student">
+                  <span>Part 141 Student</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="entry.1581795619" value="CFI/CFII/MEI">
+                  <span>CFI/CFII/MEI</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="entry.1581795619" value="Flight School (Admin/Owner)">
+                  <span>Flight School (Admin/Owner)</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="entry.1581795619" value="A&P Mechanic">
+                  <span>A&P Mechanic</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="entry.1581795619" value="Other Aircrew (FE, Loadmaster, etc.)">
+                  <span>Other Aircrew (FE, Loadmaster, etc.)</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="beta-form-group">
+              <label for="beta-about">Tell us about your flying (optional)</label>
+              <textarea id="beta-about" name="entry.850356308" placeholder="What aircraft do you fly? What's your primary use case? Any specific features you're looking for?"></textarea>
+            </div>
+
+            <div class="beta-form-submit">
+              <button type="submit" class="btn btn-primary btn-lg">Request Beta Access</button>
+            </div>
+          </form>
+
+          <div class="beta-form-message" id="beta-form-message"></div>
+        </div>
       </div>
     </div>
+
+    <!-- Hidden iframe for Google Forms submission -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
   </section>
 
   <!-- Footer -->

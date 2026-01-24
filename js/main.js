@@ -158,6 +158,92 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // ---------- Beta Banner Handling ----------
+  const betaBanner = document.getElementById('beta-banner');
+  const betaBannerDismiss = document.getElementById('beta-banner-dismiss');
+  const body = document.body;
+
+  if (betaBanner) {
+    // Check if banner was previously dismissed
+    const bannerDismissed = localStorage.getItem('betaBannerDismissed');
+
+    if (bannerDismissed) {
+      betaBanner.classList.add('hidden');
+      body.classList.remove('has-beta-banner');
+    }
+
+    // Handle dismiss button
+    if (betaBannerDismiss) {
+      betaBannerDismiss.addEventListener('click', function() {
+        betaBanner.classList.add('hidden');
+        body.classList.remove('has-beta-banner');
+        localStorage.setItem('betaBannerDismissed', 'true');
+      });
+    }
+  }
+
+  // ---------- Beta Form Handling ----------
+  const betaForm = document.getElementById('beta-form');
+  const betaFormMessage = document.getElementById('beta-form-message');
+
+  if (betaForm) {
+    betaForm.addEventListener('submit', function(e) {
+      // Get form data for validation
+      const firstName = document.getElementById('beta-firstname').value.trim();
+      const lastName = document.getElementById('beta-lastname').value.trim();
+      const email = document.getElementById('beta-email').value.trim();
+
+      // Basic validation
+      if (!firstName || !lastName || !email) {
+        e.preventDefault();
+        showFormMessage('Please fill in all required fields.', 'error');
+        return;
+      }
+
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        e.preventDefault();
+        showFormMessage('Please enter a valid email address.', 'error');
+        return;
+      }
+
+      // If validation passes, show success message
+      // The form will submit to Google Forms via the hidden iframe
+      const submitButton = betaForm.querySelector('button[type="submit"]');
+      const originalText = submitButton.textContent;
+      submitButton.textContent = 'Submitting...';
+      submitButton.disabled = true;
+
+      // Show success message after a short delay (to allow form submission)
+      setTimeout(() => {
+        showFormMessage('Thanks for signing up! We\'ll be in touch when the beta launches.', 'success');
+        submitButton.textContent = 'Request Sent!';
+
+        // Reset form after delay
+        setTimeout(() => {
+          betaForm.reset();
+          submitButton.textContent = originalText;
+          submitButton.disabled = false;
+        }, 3000);
+      }, 500);
+    });
+
+    function showFormMessage(message, type) {
+      if (betaFormMessage) {
+        betaFormMessage.textContent = message;
+        betaFormMessage.className = 'beta-form-message ' + type;
+
+        // Auto-hide error messages after 5 seconds
+        if (type === 'error') {
+          setTimeout(() => {
+            betaFormMessage.className = 'beta-form-message';
+          }, 5000);
+        }
+      }
+    }
+  }
+
 });
 
 // ---------- Utility Functions ----------
