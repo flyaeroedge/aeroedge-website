@@ -2147,3 +2147,58 @@ body.modal-open {
     padding: var(--spacing-md);
   }
 }
+
+/* ============================================
+   ACCESSIBILITY - Fieldset Reset
+   ============================================ */
+fieldset.beta-form-group {
+  border: none;
+  padding: 0;
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+fieldset.beta-form-group legend {
+  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+  padding: 0;
+}
+
+/* ============================================
+   ACCESSIBILITY - Skip Link
+   ============================================ */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+  background: var(--orange-primary);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
+
+/* ============================================
+   MOBILE DROPDOWN - Click Toggle
+   ============================================ */
+@media (max-width: 768px) {
+  .nav-dropdown .nav-dropdown-content {
+    display: none;
+  }
+
+  .nav-dropdown.dropdown-open .nav-dropdown-content {
+    display: block;
+  }
+}

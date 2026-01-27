@@ -188,6 +188,7 @@
   </script>
 </head>
 <body class="has-beta-banner">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Header -->
   <header class="header">
@@ -220,7 +221,6 @@
             </div>
           </div>
           <a href="../learn/index.html" class="nav-link">Learn</a>
-          <a href="../preview/index.html" class="nav-link">Sneak Peek</a>
           <a href="../about.html" class="nav-link">About</a>
         </nav>
       </div>
@@ -242,7 +242,7 @@
   </div>
 
   <!-- Page Header -->
-  <section class="page-header">
+  <section class="page-header" id="main-content">
     <div class="page-header-overlay"></div>
     <div class="page-header-content container">
       <div style="display: flex; flex-direction: column; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-md);">
@@ -265,7 +265,7 @@
       <!-- Feature 1: Military Conversion -->
       <div class="tool-card">
         <div class="tool-screenshot">
-          <img src="../images/milconversion.png" alt="AeroEdge Military Conversion Interface - All branches to FAA translation">
+          <img src="../images/milconversion.png" alt="AeroEdge Military Conversion Interface - All branches to FAA translation" loading="lazy" width="600" height="400">
         </div>
         <div class="tool-card-content">
           <h3>1. Military Conversion Engine</h3>
@@ -289,7 +289,7 @@
       <!-- Feature 2: Multiple Import Avenues -->
       <div class="tool-card reverse" style="margin-top: var(--spacing-xl);">
         <div class="tool-screenshot">
-          <img src="../images/importexport.png" alt="AeroEdge Import Options - Manual, CSV, Excel, JSON, OCR">
+          <img src="../images/importexport.png" alt="AeroEdge Import Options - Manual, CSV, Excel, JSON, OCR" loading="lazy" width="600" height="400">
         </div>
         <div class="tool-card-content">
           <h3>2. Multiple Import Avenues</h3>
@@ -311,7 +311,7 @@
       <!-- Feature 3: Context Logbooks -->
       <div class="tool-card" style="margin-top: var(--spacing-xl);">
         <div class="tool-screenshot">
-          <img src="../images/context.png" alt="AeroEdge Context Logbooks - Multiple concurrent logbooks with master compilation">
+          <img src="../images/context.png" alt="AeroEdge Context Logbooks - Multiple concurrent logbooks with master compilation" loading="lazy" width="600" height="400">
         </div>
         <div class="tool-card-content">
           <h3>3. Context Logbooks</h3>
@@ -335,7 +335,7 @@
       <!-- Feature 4: Training Integration -->
       <div class="tool-card reverse" style="margin-top: var(--spacing-xl);">
         <div class="tool-screenshot">
-          <img src="../images/training.png" alt="AeroEdge Training Integration - Part 61 and 141 requirements tracking">
+          <img src="../images/training.png" alt="AeroEdge Training Integration - Part 61 and 141 requirements tracking" loading="lazy" width="600" height="400">
         </div>
         <div class="tool-card-content">
           <h3>4. Training Integration</h3>
@@ -1008,8 +1008,8 @@
               <input type="email" id="beta-email" name="entry.1684897073" required>
             </div>
 
-            <div class="beta-form-group">
-              <label>What best describes you? <span style="font-weight: normal; color: var(--text-muted);">(select all that apply)</span></label>
+            <fieldset class="beta-form-group">
+              <legend>What best describes you? <span style="font-weight: normal; color: var(--text-muted);">(select all that apply)</span></legend>
               <div class="checkbox-grid" id="beta-profile">
                 <label class="checkbox-item">
                   <input type="checkbox" name="entry.1581795619" value="Military (Active Duty)">
@@ -1052,7 +1052,7 @@
                   <span>Other Aircrew (FE, Loadmaster, etc.)</span>
                 </label>
               </div>
-            </div>
+            </fieldset>
 
             <div class="beta-form-group">
               <label for="beta-about">Tell us about your flying <span style="color: var(--text-muted); font-weight: normal;">(optional)</span></label>
@@ -1073,7 +1073,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="../images/logo.png" alt="AeroEdge" class="footer-logo">
-          <p>Complete aviation software ecosystem built by a fighter pilot for pilots and aircrew.</p>
+          <p>Fighter pilot, instructor, A&P. Done settling for mediocre.</p>
         </div>
 
         <div class="footer-links">

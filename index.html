@@ -64,6 +64,7 @@
   </script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- ============ HEADER ============ -->
   <header class="header">
@@ -100,7 +101,6 @@
             </div>
           </div>
           <a href="learn/index.html" class="nav-link">Learn</a>
-          <a href="preview/index.html" class="nav-link">Sneak Peek</a>
           <a href="about.html" class="nav-link">About</a>
           <a href="https://app.flyaeroedge.com" target="_blank" class="btn btn-primary btn-sm">Try EM Diagram</a>
           <a href="https://overlay.flyaeroedge.com" target="_blank" class="btn btn-primary btn-sm">Try Overlay Tool</a>
@@ -110,9 +110,9 @@
   </header>
 
   <!-- ============ HERO SECTION ============ -->
-  <section class="hero" id="hero">
+  <section class="hero" id="main-content">
     <div class="hero-video-container">
-      <video class="hero-video" autoplay muted loop playsinline>
+      <video class="hero-video" autoplay muted loop playsinline preload="none">
         <source src="videos/hero-bg.mp4" type="video/mp4">
       </video>
     </div>
@@ -124,7 +124,7 @@
       </h1>
       <p class="hero-subtitle">
         Digital logbook. Aircraft tracking. Scheduling. Syllabus builder. Performance analysis.<br>
-        Everything connected. Nothing duplicated. Built by a fighter pilot who flies GA.
+        Everything connected. Nothing duplicated. Fighter pilot, instructor, A&P. Done settling for mediocre.
       </p>
       <div class="hero-cta">
         <a href="https://app.flyaeroedge.com" target="_blank" class="btn btn-primary btn-lg">Try EM Diagram Free</a>
@@ -226,17 +226,6 @@
     </div>
   </section>
 
-  <!-- ============ SNEAK PEEK TEASER ============ -->
-  <section class="section section-light" id="preview">
-    <div class="container text-center">
-      <h2>Sneak Peek</h2>
-      <p style="color: var(--text-muted); max-width: 600px; margin: var(--spacing-md) auto;">
-        UI previews from active development. Updated regularly as each product takes shape.
-      </p>
-      <a href="preview/index.html" class="btn btn-outline">View Preview Gallery</a>
-    </div>
-  </section>
-
   <!-- ============ ABOUT TEASER ============ -->
   <section class="section" id="about">
     <div class="container">
@@ -254,7 +243,7 @@
           <a href="about.html" class="btn btn-primary">Learn More About <span class="brand-text brand-text-light"><span class="aero">AERO</span><span class="edge">EDGE</span></span></a>
         </div>
         <div class="about-image">
-          <img src="images/creator.jpg" alt="AeroEdge creator - Fighter pilot and flight instructor">
+          <img src="images/creator.jpg" alt="AeroEdge creator - Fighter pilot and flight instructor" loading="lazy" width="600" height="400">
         </div>
       </div>
     </div>
@@ -266,7 +255,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="images/logo.png" alt="AeroEdge" class="footer-logo">
-          <p>Complete aviation software ecosystem built by a fighter pilot for GA pilots.</p>
+          <p>Fighter pilot, instructor, A&P. Done settling for mediocre.</p>
         </div>
 
         <div class="footer-links">
@@ -291,7 +280,6 @@
           <h4>Resources</h4>
           <ul>
             <li><a href="learn/index.html">Learn</a></li>
-            <li><a href="preview/index.html">Sneak Peek</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="about.html#contact">Contact</a></li>
           </ul>

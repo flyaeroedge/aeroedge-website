@@ -32,6 +32,37 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // ---------- Mobile Dropdown Toggle ----------
+  const navDropdowns = document.querySelectorAll('.nav-dropdown');
+  navDropdowns.forEach(dropdown => {
+    const dropdownLink = dropdown.querySelector('.nav-link');
+    if (dropdownLink) {
+      dropdownLink.addEventListener('click', function(e) {
+        // Only toggle on mobile (touch devices or narrow screens)
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          // Close other dropdowns
+          navDropdowns.forEach(other => {
+            if (other !== dropdown) {
+              other.classList.remove('dropdown-open');
+            }
+          });
+          // Toggle this dropdown
+          dropdown.classList.toggle('dropdown-open');
+        }
+      });
+    }
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav-dropdown')) {
+      navDropdowns.forEach(dropdown => {
+        dropdown.classList.remove('dropdown-open');
+      });
+    }
+  });
+
   // ---------- Smooth Scroll for Anchor Links ----------
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -292,11 +323,28 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ---------- Feature Modal Handling ----------
+let modalTriggerElement = null;
+
 function openModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
+    // Store the element that triggered the modal
+    modalTriggerElement = document.activeElement;
+
     modal.classList.add('active');
     document.body.classList.add('modal-open');
+
+    // Focus the close button or first focusable element
+    const closeBtn = modal.querySelector('.modal-close');
+    const firstFocusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    if (closeBtn) {
+      closeBtn.focus();
+    } else if (firstFocusable) {
+      firstFocusable.focus();
+    }
+
+    // Set up focus trap
+    setupFocusTrap(modal);
   }
 }
 
@@ -305,7 +353,44 @@ function closeModal() {
   if (activeModal) {
     activeModal.classList.remove('active');
     document.body.classList.remove('modal-open');
+
+    // Return focus to the trigger element
+    if (modalTriggerElement) {
+      modalTriggerElement.focus();
+      modalTriggerElement = null;
+    }
   }
+}
+
+function setupFocusTrap(modal) {
+  const focusableElements = modal.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
+  const firstFocusable = focusableElements[0];
+  const lastFocusable = focusableElements[focusableElements.length - 1];
+
+  modal.addEventListener('keydown', function trapFocus(e) {
+    if (e.key !== 'Tab') return;
+
+    if (e.shiftKey) {
+      // Shift + Tab
+      if (document.activeElement === firstFocusable) {
+        e.preventDefault();
+        lastFocusable.focus();
+      }
+    } else {
+      // Tab
+      if (document.activeElement === lastFocusable) {
+        e.preventDefault();
+        firstFocusable.focus();
+      }
+    }
+
+    // Remove listener when modal closes
+    if (!modal.classList.contains('active')) {
+      modal.removeEventListener('keydown', trapFocus);
+    }
+  });
 }
 
 // Close modal on overlay click

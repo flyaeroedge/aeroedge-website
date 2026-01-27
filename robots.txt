@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /videos/*.mov
+
+Sitemap: https://flyaeroedge.com/sitemap.xml
