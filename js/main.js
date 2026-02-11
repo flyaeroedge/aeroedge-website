@@ -86,8 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // ---------- Header Background on Scroll ----------
   const header = document.querySelector('.header');
   if (header) {
-    let lastScroll = 0;
-
     window.addEventListener('scroll', function() {
       const currentScroll = window.pageYOffset;
 
@@ -97,8 +95,6 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
       }
-
-      lastScroll = currentScroll;
     });
   }
 
@@ -119,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }, observerOptions);
 
   // Observe elements that should animate on scroll
-  document.querySelectorAll('.tool-card, .coming-soon-card, .card').forEach(el => {
+  document.querySelectorAll('.tool-card, .coming-soon-card, .card, .logbook-feature-card, .product-card').forEach(el => {
     el.style.opacity = '0';
     observer.observe(el);
   });
@@ -168,15 +164,89 @@ document.addEventListener('DOMContentLoaded', function() {
 
   window.addEventListener('scroll', highlightNavLink);
 
+  // ---------- Contact Form Handling ----------
+  const contactForm = document.getElementById('contact-form');
+  const contactFormMessage = document.getElementById('contact-form-message');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(contactForm);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        message: formData.get('message'),
+        source: 'website'
+      };
+
+      // Include subject in message if present
+      const subject = formData.get('subject');
+      if (subject && subject !== 'General Inquiry') {
+        data.message = '[' + subject + '] ' + data.message;
+      }
+
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitButton.textContent;
+      submitButton.textContent = 'Sending...';
+      submitButton.disabled = true;
+
+      try {
+        const response = await fetch(
+          'https://us-central1-aeroedge-logbook.cloudfunctions.net/receiveContactForm',
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          }
+        );
+
+        const result = await response.json();
+
+        if (result.success) {
+          showContactMessage('Message sent! We\'ll get back to you soon.', 'success');
+          contactForm.reset();
+          submitButton.textContent = 'Sent!';
+          setTimeout(function() {
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+          }, 3000);
+        } else {
+          throw new Error(result.error || 'Failed to send');
+        }
+      } catch (err) {
+        console.error('Contact form error:', err);
+        // Fallback to mailto
+        var mailSubject = encodeURIComponent(subject || 'Website Contact');
+        var mailBody = encodeURIComponent(
+          'Name: ' + data.name + '\nEmail: ' + data.email + '\n\n' + data.message
+        );
+        window.location.href = 'mailto:info@flyaeroedge.com?subject=' + mailSubject + '&body=' + mailBody;
+        showContactMessage('Opening your email client as a fallback...', 'error');
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+      }
+    });
+  }
+
+  function showContactMessage(message, type) {
+    if (contactFormMessage) {
+      contactFormMessage.textContent = message;
+      contactFormMessage.className = 'contact-form-message ' + type;
+
+      if (type === 'error') {
+        setTimeout(function() {
+          contactFormMessage.className = 'contact-form-message';
+        }, 5000);
+      }
+    }
+  }
+
   // ---------- Waitlist Form Handling ----------
   const waitlistForms = document.querySelectorAll('.waitlist-form');
   waitlistForms.forEach(form => {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      const email = this.querySelector('input[type="email"]').value;
-
-      // For now, just show a confirmation
-      // Replace with actual form handling (Formspree, Netlify Forms, etc.)
       const button = this.querySelector('button');
       const originalText = button.textContent;
       button.textContent = 'Added!';
@@ -187,174 +257,8 @@ document.addEventListener('DOMContentLoaded', function() {
         button.disabled = false;
         this.reset();
       }, 2000);
-
-      console.log('Waitlist signup:', email);
     });
   });
-
-  // ---------- Beta Banner Handling ----------
-  const betaBanner = document.getElementById('beta-banner');
-  const betaBannerDismiss = document.getElementById('beta-banner-dismiss');
-  const body = document.body;
-
-  if (betaBanner) {
-    // Check if banner was previously dismissed
-    const bannerDismissed = localStorage.getItem('betaBannerDismissed');
-
-    if (bannerDismissed) {
-      betaBanner.classList.add('hidden');
-      body.classList.remove('has-beta-banner');
-    }
-
-    // Handle dismiss button
-    if (betaBannerDismiss) {
-      betaBannerDismiss.addEventListener('click', function() {
-        betaBanner.classList.add('hidden');
-        body.classList.remove('has-beta-banner');
-        localStorage.setItem('betaBannerDismissed', 'true');
-      });
-    }
-  }
-
-  // ---------- Beta Form Tracking ----------
-  function trackFormEvent(event, details) {
-    var timestamp = new Date().toISOString();
-    var trackingData = {
-      event: event,
-      details: details || {},
-      timestamp: timestamp,
-      page: window.location.pathname,
-      userAgent: navigator.userAgent
-    };
-
-    // Log to console for debugging
-    console.log('[Form Tracking]', event, details || '');
-
-    // Store in localStorage for review
-    var formEvents = JSON.parse(localStorage.getItem('betaFormEvents') || '[]');
-    formEvents.push(trackingData);
-    // Keep last 100 events
-    if (formEvents.length > 100) formEvents = formEvents.slice(-100);
-    localStorage.setItem('betaFormEvents', JSON.stringify(formEvents));
-  }
-
-  // ---------- Beta Form Handling ----------
-  const betaForm = document.getElementById('beta-form');
-  const betaFormMessage = document.getElementById('beta-form-message');
-
-  if (betaForm) {
-    // Track form view
-    trackFormEvent('form_viewed');
-
-    // Track field interactions
-    var formFields = betaForm.querySelectorAll('input, textarea');
-    formFields.forEach(function(field) {
-      field.addEventListener('focus', function() {
-        trackFormEvent('field_focused', { field: this.id || this.name });
-      }, { once: true });
-    });
-
-    // Track submit button click
-    var submitBtn = betaForm.querySelector('button[type="submit"]');
-    if (submitBtn) {
-      submitBtn.addEventListener('click', function() {
-        trackFormEvent('submit_clicked');
-      });
-    }
-
-    betaForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      // Get form data for validation
-      const firstName = document.getElementById('beta-firstname').value.trim();
-      const lastName = document.getElementById('beta-lastname').value.trim();
-      const email = document.getElementById('beta-email').value.trim();
-      const about = document.getElementById('beta-about').value.trim();
-
-      // Basic validation
-      if (!firstName || !lastName || !email) {
-        trackFormEvent('validation_error', { reason: 'missing_fields', firstName: !!firstName, lastName: !!lastName, email: !!email });
-        showFormMessage('Please fill in all required fields.', 'error');
-        return;
-      }
-
-      // Email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        trackFormEvent('validation_error', { reason: 'invalid_email', email: email });
-        showFormMessage('Please enter a valid email address.', 'error');
-        return;
-      }
-
-      // Validation passed - submit via fetch
-      trackFormEvent('form_submitted', { email: email });
-      const submitButton = betaForm.querySelector('button[type="submit"]');
-      const originalText = submitButton.textContent;
-      submitButton.textContent = 'Submitting...';
-      submitButton.disabled = true;
-
-      // Create hidden iframe for form submission
-      var iframeName = 'hidden-form-iframe-' + Date.now();
-      var iframe = document.createElement('iframe');
-      iframe.name = iframeName;
-      iframe.style.display = 'none';
-      document.body.appendChild(iframe);
-
-      // Create dynamic form targeting the iframe
-      var dynamicForm = document.createElement('form');
-      dynamicForm.method = 'POST';
-      dynamicForm.action = betaForm.action;
-      dynamicForm.target = iframeName;
-      dynamicForm.style.display = 'none';
-
-      // Add form fields
-      var fields = {
-        'entry.2005620554': firstName,
-        'entry.547853813': lastName,
-        'entry.1684897073': email,
-        'entry.850356308': about
-      };
-
-      for (var name in fields) {
-        var input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = name;
-        input.value = fields[name];
-        dynamicForm.appendChild(input);
-      }
-
-      document.body.appendChild(dynamicForm);
-      dynamicForm.submit();
-
-      // Clean up and show success after delay
-      setTimeout(function() {
-        document.body.removeChild(dynamicForm);
-        document.body.removeChild(iframe);
-        showFormMessage('Thanks for signing up! We\'ll be in touch when the beta launches.', 'success');
-        submitButton.textContent = 'Request Sent!';
-        betaForm.reset();
-
-        setTimeout(function() {
-          submitButton.textContent = originalText;
-          submitButton.disabled = false;
-        }, 3000);
-      }, 1500);
-    });
-
-    function showFormMessage(message, type) {
-      if (betaFormMessage) {
-        betaFormMessage.textContent = message;
-        betaFormMessage.className = 'beta-form-message ' + type;
-
-        // Auto-hide error messages after 5 seconds
-        if (type === 'error') {
-          setTimeout(function() {
-            betaFormMessage.className = 'beta-form-message';
-          }, 5000);
-        }
-      }
-    }
-  }
 
 });
 
